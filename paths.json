@@ -1,0 +1,20 @@
+{
+  "appName": "angularYeomanApp",
+  "bower": "app/bower_components",
+  "app": "app",
+  "stylesScssDir": "app/scss",
+  "stylesScss": "app/scss/**/*.scss",
+  "stylesCssDir": "app/styles",
+  "stylesCss": "app/styles/**/*.css",
+  "scripts": "app/**/*.js",
+  "imagesApp": "app/images/**/*",
+  "imagesDistDir": "dist/images/",
+  "imagesDist": "dist/images/**/*",
+  "fontsDir": "app/fonts",
+  "fontsDirDist": "dist/fonts",
+  "fonts": "app/fonts/**/*",
+  "partials": ["app/**/*.html", "!app/index.html", "!app/bower_components/**/*"],
+  "html": "app/**/*.html",
+  "dist": "dist",
+  "distScripts": "dist/scripts"
+}
