@@ -16,7 +16,7 @@ var paths = require('../paths.json');
 //----------APP SCSS----------------------
 //compile scss to css in app directory and strip unused styles for compiles vendor css files.
 
-var vendCssFiles = ['font-awesome.css']
+var vendCssFiles = ['bootstrap.css', 'font-awesome.css']
 
 var filterFilesArr = vendCssFiles;
 
@@ -30,7 +30,7 @@ var filterFiles = function(file) {
 
 //compile scss files into css and removed unused styles with uncess from files specified in filterFilesArr array
 gulp.task('scss', function () {
-  gulp.src([paths.stylesScss, '!**/bootstrap.scss'])
+  gulp.src(paths.stylesScss)
     .pipe(p.plumber())
     .pipe(p.sourcemaps.init())
       .pipe(p.sass({outputStyle: 'expanded'})
