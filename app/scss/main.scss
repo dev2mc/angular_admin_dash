@@ -7,3 +7,6 @@
 @import 'base/typography';
 //base styles
 @import 'base/base';
+
+//Styles for app partials (using BEM notation)
+@import 'site-partials/top-bar';

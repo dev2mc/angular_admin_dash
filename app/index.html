@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Angular Admin Dashboard</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Lazakovich Valery">
-  <title>Angular Admin Dashboard</title>
   <!-- build:css styles/vendor.min.css -->
   <!-- bower:css -->
   <link rel="stylesheet" href="bower_components/bxslider-4/dist/jquery.bxslider.css" />
@@ -22,74 +21,26 @@
   <!-- endinject -->
   <!-- endbuild -->
 </head>
-<body ng-app="angularYeomanApp">
-
-  <div class="container">
-    <div class="jumbotron">
-      <h1>My First Bootstrap Page</h1>
-      <p>Resize this responsive page to see the effect!</p>
-    </div>
-    <div class="row">
-      <div class="col-sm-4">
-        <h3>Column 1</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-      </div>
-      <div class="col-sm-4">
-        <h3>Column 2</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-      </div>
-      <div class="col-sm-4">
-        <h3>Column 3</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-      </div>
-    </div>
-  </div>
-
-
-<!--[if lt IE 7]>
-    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
-
-  <!-- Add your site or application content here -->
-  <div class="header">
-    <div class="navbar navbar-default" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-
-          <a class="navbar-brand" href="#/">angularYeoman</a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#/">Home</a></li>
-            <li><a ng-href="#/about">About</a></li>
-            <li><a ng-href="#/">Contact</a></li>
-          </ul>
+<body>
+  <div class="top-bar">
+    <div class="app-container">
+      <div class="top-bar__container">
+        <h1 class="top-bar__heading">
+          <!-- link -->
+          <a href="#" class="top-bar__page-link">Dash<span class="top-bar__page-link_font_bold">Board</span></a>
+        </h1>
+        <div class="tools">
+          <div class="tools__container">
+            <form class="tools__search">
+              <input type="text" class="tools__search__input">
+              <button class="tools__search__submit"></button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="container">
-  <div ng-view=""></div>
-  </div>
-
-  <div class="footer">
-    <div class="container">
-      <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-    </div>
-  </div>
 
   <!-- build:js scripts/vendor.min.js -->
   <!-- bower:js -->

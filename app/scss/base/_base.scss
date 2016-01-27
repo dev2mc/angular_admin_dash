@@ -1,7 +1,14 @@
+//base styles for whole application
+
 body {
   min-width: 320px;
 
-  font-family: 'HelveticaNeueLTStd Roman';
+  font-family: 'HelveticaNeueLTStd Roman', 'Arial', sans-serif;
   font-size: 14px;
   text-rendering: optimizeLegibility;
+}
+
+.app-container {
+  width: 1366px;
+  margin: 0 auto;
 }

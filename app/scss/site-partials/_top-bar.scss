@@ -1,0 +1,74 @@
+//style for top-bar block
+
+$top-bar-height: 62px;
+
+//block that wraps all the elements used in it
+.top-bar {
+  width: 100%;
+  height: $top-bar-height;
+  background: color(ebony-clay);
+}
+
+//wrapper around top-bar contents for better styling
+.top-bar__container {
+  display: flex;
+  align-items: center;
+  height: $top-bar-height;
+  padding: 0 30px;
+}
+
+//main heading of the app
+.top-bar__heading {
+  width: 295px;
+  margin: 0;
+
+  font-size: 26px;
+  line-height: 1;
+}
+
+//link element that included in main heading of the app
+.top-bar__page-link {
+  color: color(whisper);
+  font-family: 'HelveticaNeueLTStd Bold';
+
+  &:hover,
+  &:focus {
+    color: color(whisper);
+    text-decoration: none;
+  }
+}
+
+//apply different font-family for 'Board' part of the app heading
+.top-bar__page-link_font_bold {
+  font-family: 'HelveticaNeueLTStd Roman';
+}
+
+//--styles used for tools (search, email, notification) on topbar ------------
+
+//form for topbar
+.tools__search {
+  position: relative;
+  width: 465px;
+}
+
+//input for form in topbar
+.tools__search__input {
+  width: 100%;
+  height: 40px;
+  padding: 0 45px 0 15px;
+
+  border: 0;
+  border-radius: 4px;
+  outline: none;
+
+  background: rgba(color(whitecol), .078);
+
+  color: color(whitecol);
+}
+
+//submit buttom(element) for topbar
+.tools__search__submit {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
