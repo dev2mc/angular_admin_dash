@@ -129,8 +129,6 @@ gulp.task('test', ['test_single']);
 //task for building app for distribution
 gulp.task('build', ['html', 'dist_copy_assets', 'minImg']);
 
-
-
 //building app for distribution and launching server from build folder
 gulp.task('build:serve', ['html', 'dist_copy_assets', 'minImg'], function() {
   browserSync.init({

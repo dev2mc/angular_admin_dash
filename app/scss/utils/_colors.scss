@@ -1,0 +1,43 @@
+//IN THIS FILE PLACED COLOR PALETTES FOR DIFFERENT COLOR THEMES
+//you can change color of the web page by replacing value of the $currentPalette and $alternativePalette variables with name of other palletes listed below.
+
+
+$color-palette-default: (
+  siteAccentColor: #d34346,
+  siteAccentDarkerColor: #bd2d30,
+  siteAccentAltColor: #2c3e50,
+  textAccentColor: white,
+  testAccentColorDarker: #f7e2e2,
+  testAccentColorVeryDark: #212121,
+  sectionBgColor: #f7f7f7,
+  sectionBgColorDarker: #efefef,
+  facebookIconColor: #4467ae,
+  twitterIconColor: #0099cb,
+  footerTextColor: #7694b3
+);
+
+$color-palette-dark: (
+	headerBackgroundC: green
+);
+
+$current-palette: $color-palette-default;
+
+$alternative-palette: $color-palette-dark;
+
+
+//*** FUNCTION FOR GETTING COLOR FROM COLOR MAPS WITHOUT NESTED MAPS
+@function color($key) {
+  @if not map-has-key($current-palette, $key) {
+    @warn "Key `#{$key}` not found in $colors map.";
+  }
+  @return map-get($current-palette, $key);
+}
+// example: color: color(primary);
+
+@function color-alt($key) {
+  @if not map-has-key($alternative-palette, $key) {
+    @warn "Key `#{$key}` not found in $colors map.";
+  }
+  @return map-get($alternative-palette, $key);
+}
+// example: color: colorAlt(primary);

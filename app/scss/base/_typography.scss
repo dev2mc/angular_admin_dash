@@ -1,0 +1,8 @@
+//Here are typography related styles and mixins
+
+//import needed font with font-face mixin
+@include font-face("OpenSans Bold", "../fonts/opensans/opensans-bold/opensans-bold", bold, normal);
+@include font-face("OpenSans ExtraBold", "../fonts/opensans/opensans-extrabold/opensans-extrabold", bolder, normal);
+@include font-face("OpenSans Italic", "../fonts/opensans/opensans-italic/opensans-italic");
+@include font-face("OpenSans Regular", "../fonts/opensans/opensans-regular/opensans-regular");
+@include font-face("OpenSans SemiBold", "../fonts/opensans/opensans-semibold/opensans-semibold");
