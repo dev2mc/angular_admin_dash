@@ -32,6 +32,10 @@ h1 {
   margin: 0.67em 0;
 }
 
+img {
+  border: 0;
+}
+
 button,
 input {
   color: inherit;
@@ -87,6 +91,14 @@ input {
 
   a[href^="#"]:after {
     content: "";
+  }
+
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
   }
 
   p,
@@ -154,6 +166,10 @@ a:focus {
   outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
+}
+
+img {
+  vertical-align: middle;
 }
 
 h1,

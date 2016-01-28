@@ -1,5 +1,4 @@
 //style for top-bar block
-
 $top-bar-height: 62px;
 
 //block that wraps all the elements used in it
@@ -15,6 +14,16 @@ $top-bar-height: 62px;
   align-items: center;
   height: $top-bar-height;
   padding: 0 30px;
+
+  > :last-child {
+    margin-left: auto;
+  }
+
+  @media screen and (max-width: 1100px) {
+    > :last-child {
+      margin-left: 25px;
+    }
+  }
 }
 
 //main heading of the app
@@ -24,6 +33,11 @@ $top-bar-height: 62px;
 
   font-size: 26px;
   line-height: 1;
+
+  @media screen and (max-width: 950px) {
+    width: auto;
+    margin-right: 25px;
+  }
 }
 
 //link element that included in main heading of the app
@@ -44,26 +58,53 @@ $top-bar-height: 62px;
 }
 
 //--styles used for tools (search, email, notification) on topbar ------------
+.tools {
+  @media screen and (max-width: 950px) {
+    flex-grow: 2;
+  }
+}
+
+.tools__container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  > * {
+    margin-right: 25px;
+  }
+
+  > :last-child {
+    margin-right: 0;
+  }
+}
 
 //form for topbar
 .tools__search {
   position: relative;
-  width: 465px;
+
+  flex-grow: 2;
 }
 
+$tools-search-input-height: 40px;
+$tools-search-input-border-radius: 4px;
 //input for form in topbar
 .tools__search__input {
-  width: 100%;
-  height: 40px;
+  width: 465px;
+  height: $tools-search-input-height;
   padding: 0 45px 0 15px;
 
   border: 0;
-  border-radius: 4px;
+  border-radius: $tools-search-input-border-radius;
   outline: none;
 
   background: rgba(color(whitecol), .078);
 
-  color: color(whitecol);
+  color: rgba(color(whitecol), .50);
+
+  @media screen and (max-width: 950px) {
+    width: 100%;
+
+  }
 }
 
 //submit buttom(element) for topbar
@@ -71,4 +112,106 @@ $top-bar-height: 62px;
   position: absolute;
   top: 0;
   right: 0;
+  width: 45px;
+  height: $tools-search-input-height;
+  padding: 0;
+  padding-left: 5px;
+
+  border: 0;
+  border-radius: $tools-search-input-border-radius;
+
+  background: transparent;
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
+
+//search icon in tools__search__submit element
+.tools__search__icon {
+  padding-right: 20px;
+
+  color: rgba(color(whitecol), .36);
+  font-size: 19px;
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
+
+//styles for notifications element (one that is big bell and email)
+.tools__notifications {
+  position: relative;
+}
+
+.tools__notifications__icon {
+  color: color(silvercol);
+  font-size: 24px;
+
+  cursor: pointer;
+}
+
+.tools__notifications__icon_font_sm {
+  font-size: 22px;
+}
+
+//styles for a little number in upper-right corner of tools__notifications__icon
+.tools__counter {
+  position: absolute;
+  top: -6px;
+  right: -5px;
+  width: 14px;
+  height: 14px;
+
+  border-radius: 50%;
+
+  background: color(alizarin-crimson);
+
+  color: color(whitecol);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 14px;
+  text-align: center;
+}
+
+.tools__counter_bg_alt {
+  background: color(casablanca);
+}
+
+//-----------------Styles for user menu-------------------------
+.user-menu {
+  cursor: pointer;
+}
+
+.user-menu__container {
+  display: flex;
+  align-items: center;
+}
+
+.user-menu__avatar {
+  width: 34px;
+  height: 34px;
+  margin-right: 10px;
+
+  border-radius: 50px;
+}
+
+.user-menu__name {
+  margin-right: 15px;
+
+  color: color(cadet-blue);
+  font-family: 'HelveticaNeueLTStd Bold';
+  font-size: 18px;
+}
+
+.user-menu__name_font_thinner {
+  font-family: 'HelveticaNeueLTStd Roman';
+}
+
+.user-menu__drop-icon {
+  color: color(cadet-blue);
+  font-size: 14px;
 }
