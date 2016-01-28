@@ -100,7 +100,7 @@ gulp.task('dist_copy_assets', ['cleanDist'], function(){
 });
 
 //task for clearing dist folder before building
-gulp.task('cleanDist', function () {
+gulp.task('cleanDist', ['wire'], function () {
   return del([
     paths.dist + '/**/*',
   ]);

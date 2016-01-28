@@ -68,5 +68,8 @@ gulp.task('init_compile_vendor', ['init_copy_bs', 'init_rename_bs_file', 'init_d
       }))
       .pipe(p.uncss({html: [paths.app + '/index.html', paths.app + '/components/**/*.html']}))
     .pipe(p.sourcemaps.write())
-    .pipe(gulp.dest(paths.stylesCssDir + '/vendor'))
+    .pipe(p.rename(function(path) {
+        path.dirname = "../styles/";
+      }))
+    .pipe(gulp.dest(paths.stylesCssDir))
 });

@@ -4,6 +4,8 @@ var gulp = require('gulp'),
     //Loads in any gulp p and attaches them to the global scope, or an object of your choice
     p = require('gulp-load-plugins')();
 
+var gutil = require('gulp-util');
+
 //plugin for reloading browser on assets changing
 var browserSync = require('browser-sync').create();
 
@@ -41,6 +43,9 @@ gulp.task('scss', function () {
       }))
       .pipe(p.if(filterFiles, p.uncss({html: [paths.app + '/index.html', paths.app + '/components/**/*.html']})))
     .pipe(p.sourcemaps.write())
+    .pipe(p.rename(function(path) {
+        path.dirname = "../styles/";
+      }))
     .pipe(gulp.dest(paths.stylesCssDir))
     .pipe(browserSync.stream());
 });
