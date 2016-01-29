@@ -1,0 +1,141 @@
+.side-bar {
+  width: 325px;
+  height: 100%;
+
+  background: color(charade);
+
+  > * {
+    transition: all .5s;
+  }
+}
+
+.side-bar__container {
+  padding-right: 54px;
+  padding-left: 35px;
+}
+
+.side-bar__menu {
+  margin-bottom: 60px;
+  padding: 0;
+  padding-top: 35px;
+}
+
+.side-bar__item {
+  margin-bottom: 18px;
+
+  line-height: 1;
+
+  list-style-type: none;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.side-bar__link {
+  display: flex;
+  align-items: center;
+
+  color: color(cadet-blue);
+  line-height: 1;
+
+  &:hover,
+  &:focus {
+    color: color(cadet-blue);
+    text-decoration: none;
+  }
+}
+
+.side-bar__link__icon {
+  margin-right: 20px;
+
+  font-size: 20px;
+}
+
+.side-bar__link__icon_format_go {
+  margin-right: 0;
+  font-size: 13px;
+
+}
+
+.side-bar__link__text {
+  margin-right: auto;
+
+  font-family: 'HelveticaNeueLTStd Roman';
+  font-size: 13px;
+}
+
+.side-bar__link__counter {
+  width: 24px;
+  margin-right: 20px;
+
+  border-radius: 7px;
+
+  background: color(piper);
+
+  color: color(whitecol);
+  font-family: 'HelveticaNeueLTStd Bold';
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.side-bar__collapse {
+  display: flex;
+  align-items: center;
+
+  color: color(cadet-blue);
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.side-bar__collapse__icon {
+  margin-right: 20px;
+
+  transform: rotate(180deg);
+
+  font-size: 20px;
+}
+
+.side-bar__collapse__text {
+  font-family: 'HelveticaNeueLTStd Roman';
+  font-size: 13px;
+}
+
+//modificator class to hide side-bar menu items text and arrors
+.side-bar_mode_collapsed {
+  width: 65px;
+
+  .side-bar__container {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .side-bar__link__icon {
+    margin-right: 5px;
+  }
+
+  .side-bar__link__text {
+    display: none;
+  }
+
+  .side-bar__collapse__text {
+    display: none;
+  }
+
+  .side-bar__link__icon_format_go {
+    display: none;
+  }
+
+  .side-bar__link__counter {
+    margin: 0;
+
+    font-family: 'HelveticaNeueLTStd Roman';
+    font-size: 11px;
+  }
+
+  .side-bar__collapse__icon {
+    transform: rotate(0deg);
+  }
+}

@@ -8,7 +8,13 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+//wraper-conteiner for content
 .app-container {
   max-width: 1366px;
   margin: 0 auto;
+}
+
+//container-wrapper for main content and aside block of the page
+.main-container {
+  display: flex;
 }

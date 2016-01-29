@@ -18,6 +18,11 @@ body {
   margin: 0;
 }
 
+aside,
+main {
+  display: block;
+}
+
 a {
   background-color: transparent;
 }
@@ -196,6 +201,11 @@ h2 {
 
 p {
   margin: 0 0 10px;
+}
+
+ul {
+  margin-top: 0;
+  margin-bottom: 10px;
 }
 
 .container {
