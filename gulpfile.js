@@ -111,10 +111,26 @@ gulp.task('serve', ['scss', 'wire'], function() {
   browserSync.init({
     server: './' + paths.app
   });
-  gulp.watch(paths.stylesScss, ['scss', 'wire']);
+
+  gulp.watch(paths.stylesScss, {
+    interval: 1000, // default 100
+    debounceDelay: 1000, // default 500
+    mode: 'poll'
+  }, ['scss', 'wire']);
+
   gulp.watch(paths.html).on('change', browserSync.reload);
-  gulp.watch(paths.bower + '/**/*', ['wire']);
-  gulp.watch([paths.app + '/app.js', paths.app + '/components/**/*.js'], ['wire'])
+
+  gulp.watch(paths.bower + '/**/*', {
+    interval: 1000, // default 100
+    debounceDelay: 1000, // default 500
+    mode: 'poll'
+  }, ['wire']);
+
+  gulp.watch([paths.app + '/app.js', paths.app + '/components/**/*.js'], {
+    interval: 1000, // default 100
+    debounceDelay: 1000, // default 500
+    mode: 'poll'
+  }, ['wire'])
 });
 
 //task for compiling development assets but without browserSync
