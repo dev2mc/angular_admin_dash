@@ -1,0 +1,163 @@
+.tasks {
+  // flex-grow: 2;
+  flex-shrink: 150;
+  // width: calc(100% - 325px);
+
+  background: color(wild-sand);
+}
+
+.tasks__container {}
+
+.tasks__top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 58px;
+  padding: 0 39px;
+
+  background: color(gallery);
+}
+
+.tasks__heading {
+  margin: 0;
+  padding: 0;
+
+  color: color(ebony-clay);
+  font-family: 'HelveticaNeueLTStd Bold';
+  font-size: 25px;
+  line-height: 1;
+}
+
+.tasks__options {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.tasks__option {
+  margin-right: 15px;
+
+  cursor: pointer;
+
+  list-style-type: none;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.tasks__option__icon {
+  color: color(ebony-clay);
+  font-size: 30px;
+}
+
+.tasks__tags {
+  margin-bottom: 43px;
+  padding: 0 39px;
+  padding-top: 21px;
+}
+
+.tasks__tags__list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.tasks__tags__item {
+  margin-right: 34px;
+
+  list-style-type: none;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  color: rgba(color(dove-gray), .89);
+  font-family: 'HelveticaNeueLTStd Bold';
+  font-size: 16px;
+  text-transform: capitalize;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.tasks__tags__item_is_active {
+  color: color(ebony-clay);
+}
+
+.tasks__items {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-left: 34px;
+}
+
+.tasks__item {
+  position: relative;
+  width: 304px;
+  height: 184px;
+  margin-right: 30px;
+  margin-bottom: 35px;
+  padding: 28px 16px;
+
+  border-radius: 4px;
+}
+
+.tasks__item__heading {
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+
+  color: color(wild-sand);
+  font-family: 'HelveticaNeueLTStd Bold';
+  font-size: 30px;
+  line-height: 1;
+  text-transform: capitalize;
+}
+
+.tasks__item__tag {
+  margin: 0;
+  margin-bottom: 30px;
+  padding: 0;
+
+  color: color(wild-sand);
+  font-family: 'HelveticaNeueLTStd Roman';
+  line-height: 1;
+  text-transform: lowercase;
+}
+
+.tasks__item__desc {
+  height: 48px;
+  margin: 0;
+  padding: 0;
+
+  color: color(wild-sand);
+  font-family: 'HelveticaNeueLTStd Roman';
+  line-height: 1.2;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  -webkit-line-clamp: 3;
+}
+
+.tasks__item__icon-favorite {
+  position: absolute;
+  top: 25px;
+  right: 38px;
+
+  color: rgba(color(ebony-clay), .5);
+  font-size: 25px;
+
+  cursor: pointer;
+}
+
+.tasks__item__icon-favorite_is_checked {
+  color: color(golden-tainoi);
+}
+
+//classes for different background colors for tasks items
+.tasks__item_bg_ship-cove {
+  background: color(ship-cove);
+}

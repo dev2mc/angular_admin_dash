@@ -1,6 +1,8 @@
 .side-bar {
   width: 325px;
   height: 100%;
+  flex-grow: 2;
+
 
   background: color(charade);
 
@@ -135,7 +137,14 @@
     font-size: 11px;
   }
 
+  .side-bar__collapse {
+    display: flex;
+    justify-content: center;
+  }
+
   .side-bar__collapse__icon {
+    margin: 0;
+
     transform: rotate(0deg);
   }
 }
