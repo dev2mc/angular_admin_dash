@@ -1,5 +1,5 @@
 {
-  "appName": "angularYeomanApp",
+  "appName": "angularDashboardApp",
   "bower": "app/bower_components",
   "app": "app",
   "stylesScssDir": "app/scss",

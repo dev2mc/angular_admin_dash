@@ -1,6 +1,6 @@
 'use strict';
 angular
-  .module('angularYeomanApp', [
+  .module('angularDashboardApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',

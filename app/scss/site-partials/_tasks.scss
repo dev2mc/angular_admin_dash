@@ -1,12 +1,9 @@
+//styles for tasks block
 .tasks {
-  // flex-grow: 2;
   flex-shrink: 150;
-  // width: calc(100% - 325px);
 
   background: color(wild-sand);
 }
-
-.tasks__container {}
 
 .tasks__top-bar {
   display: flex;
@@ -66,16 +63,15 @@
 .tasks__tags__item {
   margin-right: 34px;
 
-  list-style-type: none;
-
-  line-height: 1;
-
-  cursor: pointer;
-
   color: rgba(color(dove-gray), .89);
   font-family: 'HelveticaNeueLTStd Bold';
   font-size: 16px;
+  line-height: 1;
   text-transform: capitalize;
+
+  cursor: pointer;
+
+  list-style-type: none;
 
   &:last-child {
     margin-right: 0;
@@ -88,8 +84,8 @@
 
 .tasks__items {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-between;
   padding-left: 34px;
 }
 
