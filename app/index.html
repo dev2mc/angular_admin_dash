@@ -160,26 +160,40 @@
     </aside>
 
     <!-- tasks block -->
-    <main class="tasks" ng-controller='tasksComponentCtrl'>
+    <main class="tasks" ng-controller='tasksComponentCtrl' ng-class="{'tasks_show_del-controls': delTasksItemsVisible}">
       <div class="tasks__container">
         <div class="tasks__top-bar">
           <h4 class="tasks__heading">Tasks</h4>
           <ul class="tasks__options">
-            <li class="tasks__option"><span class="tasks__option__icon">+</span></li>
-            <li class="tasks__option"><span class="tasks__option__icon">&times</span></li>
+            <li class="tasks__option"><span class="tasks__option__icon  tasks__option__icon_ttip_add">+</span></li>
+            <li class="tasks__option" ng-click='toggleDelTasksVisible()'><span class="tasks__option__icon tasks__option__icon_ttip_del">&times</span></li>
           </ul>
+        </div>
+        <div class="tasks__deletion-panel">
+          <span class="tasks__deletion-panel__button tasks__deletion-panel__button_bg_delete" ng-click='removeTasks();toggleDelTasksVisible()'>
+            <i class="fa fa-trash tasks__deletion-panel__icon"></i>
+            Delete
+          </span>
+          <span class="tasks__deletion-panel__button tasks__deletion-panel__button_bg_cancel" ng-click='toggleDelTasksVisible()'>
+            <i class="fa fa-ban tasks__deletion-panel__icon"></i>
+            Cancel
+          </span>
         </div>
         <div class="tasks__tags">
           <ul class="tasks__tags__list">
             <li class="tasks__tags__item" ng-click='assignTag($index)' ng-repeat='tag in tasksTags'>{{tag}}</li>
           </ul>
         </div>
-        <div class="tasks__items" ui-sortable ng-model='tasksItems'>
+        <div class="tasks__items">
           <div class="tasks__item tasks__item_bg_{{arrayOfColors[$index]}}" ng-repeat='task in tasksItems | tasksItemFilter:filteredTag'>
             <h3 class="tasks__item__heading">{{task.name}}</h3>
             <p class="tasks__item__tag">{{task.tag}}</p>
             <p class="tasks__item__desc">{{task.description}}</p>
             <i class="fa fa-star tasks__item__icon-favorite" ng-class="{'tasks__item__icon-favorite_is_checked': task.favorite}" ng-click='changeFavorite($index)'></i>
+            <div class="tasks__item__delete-check">
+              <input class="tasks__item__checkbox" type="checkbox"  id="check_{{task.id}}">
+              <label class="tasks__item__label" for="check_{{task.id}}" ng-click='addTasksToDel(task.id)'></label>
+            </div>
           </div>
         </div>
       </div>
@@ -207,9 +221,9 @@
   <!-- build:js scripts/app.min.js -->
   <!-- inject:angularcustom:js -->
   <script src="app.js"></script>
-  <script src="components/tasksItemComponent/tasksItemDirective.js"></script>
-  <script src="components/tasksComponent/tasksComponentController.js"></script>
+  <script src="components/tasksComponent/tasksComponentCtrl.js"></script>
   <script src="components/tasksComponent/tasksComponentItemsFilter.js"></script>
+  <script src="components/tasksItemComponent/tasksItemDirective.js"></script>
   <!-- endinject -->
   <!-- endbuild -->
 </body>

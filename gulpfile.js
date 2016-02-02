@@ -83,12 +83,25 @@ gulp.task('test_single', ['dev'], function (done) {
 });
 
 //task for images minification with gulp-imagemin plugin
-gulp.task('minImg', ['cleanDist'], function () {
-  return gulp.src(paths.imagesApp)
+gulp.task('minImg', ['cleanDist', 'sprites'], function () {
+  return gulp.src([paths.imagesApp, '!' + paths.imagesAppDir + '/sprites/**/*', '!' + paths.imagesAppDir + '/sprites/'])
     .pipe(p.imagemin({
         optimizationLevel: 3
     }))
     .pipe(gulp.dest(paths.imagesDistDir));
+});
+
+//task for building spritesheet
+gulp.task('sprites', function () {
+  return  gulp.src(paths.imagesAppDir + '/sprites/**/*.png')
+    .pipe(p.spritesmith({
+      imgName: 'sprites.png',
+      styleName: '_sprites.scss',
+      imgPath: '../images/sprites.png',
+      padding: 30
+    }))
+    .pipe(p.if('*.png', gulp.dest(paths.imagesAppDir)))
+    .pipe(p.if('*.scss', gulp.dest(paths.stylesScssDir + '/utils')));
 });
 
 //task for copying unedited assest fonts, etc.. to dist folder
@@ -107,34 +120,49 @@ gulp.task('cleanDist', ['wire'], function () {
 });
 
 //task for serving file for development from app folder
-gulp.task('serve', ['scss', 'wire'], function() {
+gulp.task('serve', ['sprites', 'scss', 'wire'], function() {
   browserSync.init({
     server: './' + paths.app
   });
 
+
+  //watcher for scss(sass)
   gulp.watch(paths.stylesScss, {
     interval: 1000, // default 100
     debounceDelay: 1000, // default 500
     mode: 'poll'
   }, ['scss', 'wire']);
 
+  //watcher for changes in html files
   gulp.watch(paths.html).on('change', browserSync.reload);
 
+  //watcher for changes in images folder
+  gulp.watch([paths.imagesApp, '!' + paths.imagesAppDir + '/sprites/**/*']).on('change', browserSync.reload);
+
+  //watcher for bower packages
   gulp.watch(paths.bower + '/**/*', {
     interval: 1000, // default 100
     debounceDelay: 1000, // default 500
     mode: 'poll'
   }, ['wire']);
 
+  //watcher for angular cutom js files
   gulp.watch([paths.app + '/app.js', paths.app + '/components/**/*.js'], {
     interval: 1000, // default 100
     debounceDelay: 1000, // default 500
     mode: 'poll'
-  }, ['wire'])
+  }, ['wire']);
+
+  //watcher for sprites
+  gulp.watch(paths.imagesAppDir + '/sprites/**/*.png', {
+    interval: 1000, // default 100
+    debounceDelay: 1000, // default 500
+    mode: 'poll'
+  }, ['sprites']);
 });
 
 //task for compiling development assets but without browserSync
-gulp.task('dev', ['scss', 'wire']);
+gulp.task('dev', ['sprites', 'scss', 'wire']);
 
 //default gulp task will serve development envirnment from app folder
 gulp.task('default', ['serve']);

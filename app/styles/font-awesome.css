@@ -52,6 +52,10 @@
   content: "";
 }
 
+.fa-ban:before {
+  content: "";
+}
+
 .fa-comment:before {
   content: "";
 }
@@ -90,6 +94,10 @@
 
 .fa-share-alt:before {
   content: "";
+}
+
+.fa-trash:before {
+  content: "";
 }
 
 .fa-line-chart:before {

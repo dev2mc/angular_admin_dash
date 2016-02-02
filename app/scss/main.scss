@@ -1,6 +1,9 @@
 //CUSTOM MIXINS
 @import 'utils/custom-mixins';
+// COLOR PALETTE WITH NEEDED VARIABLES AND FUNCTIONS
 @import 'utils/colors';
+//SPRITES FOR PNG IMAGES (EXCLUDE THIS LINE IF SPRITES AREN'T NEEDED)
+@import 'utils/sprites';
 
 //BASE STYLES THAT WILL BE APPLYED ACROSS ALL PAGES
 //typography: fonts, font sizes etc

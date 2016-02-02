@@ -5,6 +5,10 @@
   background: color(wild-sand);
 }
 
+.tasks__container {
+  position: relative;
+}
+
 .tasks__top-bar {
   display: flex;
   align-items: center;
@@ -44,8 +48,98 @@
 }
 
 .tasks__option__icon {
+  position: relative;
+
   color: color(ebony-clay);
   font-size: 30px;
+
+  &::after {
+    display: none;
+    position: absolute;
+    top: -17px;
+
+    // right: -193%;
+    // width: 88px;
+    padding: 5px 10px;
+
+    border-radius: 4px;
+
+    background: color(java);
+
+    color: color(whitecol);
+    font-size: 12px;
+    text-align: center;
+
+    content: 'tooltip';
+  }
+
+  &:hover {
+    &::after {
+      display: inline-block;
+    }
+  }
+}
+
+//styles for tooltip for task__option delete item
+.tasks__option__icon_ttip_del {
+  &::after {
+    left: 100%;
+
+    content: 'Delete Items';
+  }
+}
+
+.tasks__option__icon_ttip_add {
+  &::after {
+    right: 100%;
+
+    content: 'Add Items';
+  }
+}
+
+//styles for deletion panel
+.tasks__deletion-panel {
+  display: flex;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+
+  > * {
+    margin-right: 10px;
+  }
+
+  > :last-child {
+    margin-right: 0;
+  }
+}
+
+.tasks__deletion-panel__button {
+  // display: flex;
+  display: none;
+  align-items: center;
+  padding: 5px 10px;
+
+  border-radius: 4px;
+
+  background: color(dove-gray);
+
+  color: color(whitecol);
+
+  cursor: pointer;
+}
+
+.tasks__deletion-panel__button_bg_delete {
+  background: color(sunset-orange);
+}
+
+.tasks__deletion-panel__button_bg_cancel {
+  background: color(cornflower-blue);
+}
+
+.tasks__deletion-panel__icon {
+  margin-right: 10px;
+
+  font-size: 20px;
 }
 
 .tasks__tags {
@@ -154,6 +248,37 @@
   color: color(golden-tainoi);
 }
 
+.tasks__item__delete-check {
+  display: none;
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  width: 30px;
+  height: 30px;
+}
+
+.tasks__item__checkbox {
+  display: none;
+
+  &:checked {
+    & + .tasks__item__label {
+      @extend .icon-tasks__item-checkbox-checked-img
+    }
+  }
+
+  &:not(:checked) {
+    & + .tasks__item__label {
+      @extend .icon-tasks__item-checkbox-unchecked-img
+    }
+  }
+}
+
+.tasks__item__label {
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+
 //classes for different background colors for tasks items
 .tasks__item_bg_ship-cove {
   background: color(ship-cove);
@@ -189,4 +314,16 @@
 
 .tasks__item_bg_mantis {
   background: color(mantis);
+}
+
+//----------------------------------------------------------
+//spesial class to show delete tasks items controls
+.tasks_show_del-controls {
+  .tasks__deletion-panel__button {
+    display: flex;
+  }
+
+  .tasks__item__delete-check {
+    display: inline-block;
+  }
 }
