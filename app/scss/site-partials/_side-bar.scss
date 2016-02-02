@@ -1,8 +1,9 @@
 .side-bar {
+  flex-basis: 325px;
+  flex-grow: 0;
+  flex-shrink: 0;
   width: 325px;
   height: 100%;
-  flex-grow: 2;
-
 
   background: color(charade);
 
@@ -107,6 +108,7 @@
 
 //modificator class to hide side-bar menu items text and arrors
 .side-bar_mode_collapsed {
+  flex-basis: 65px;
   width: 65px;
 
   .side-bar__container {

@@ -21,7 +21,7 @@
   <!-- endinject -->
   <!-- endbuild -->
 </head>
-<body>
+<body ng-app="angularDashboardApp">
   <!-- top bar block -->
   <div class="top-bar">
     <div class="app-container">
@@ -160,7 +160,7 @@
     </aside>
 
     <!-- tasks block -->
-    <main class="tasks">
+    <main class="tasks" ng-controller='tasksComponentCtrl'>
       <div class="tasks__container">
         <div class="tasks__top-bar">
           <h4 class="tasks__heading">Tasks</h4>
@@ -171,54 +171,15 @@
         </div>
         <div class="tasks__tags">
           <ul class="tasks__tags__list">
-            <li class="tasks__tags__item tasks__tags__item_is_active">All</li>
-            <li class="tasks__tags__item">Work</li>
-            <li class="tasks__tags__item">Home</li>
-            <li class="tasks__tags__item">Shopping</li>
-            <li class="tasks__tags__item">Entertainment</li>
+            <li class="tasks__tags__item" ng-click='assignTag($index)' ng-repeat='tag in tasksTags'>{{tag}}</li>
           </ul>
         </div>
-        <div class="tasks__items">
-          <div class="tasks__item tasks__item_bg_ship-cove">
-            <h3 class="tasks__item__heading">Hire Baraa</h3>
-            <p class="tasks__item__tag">work</p>
-            <p class="tasks__item__desc">Hire Baraa Bilal as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan</p>
-            <i class="fa fa-star tasks__item__icon-favorite"></i>
-          </div>
-
-          <div class="tasks__item tasks__item_bg_ship-cove">
-            <h3 class="tasks__item__heading">Hire Baraa</h3>
-            <p class="tasks__item__tag">work</p>
-            <p class="tasks__item__desc">Hire Baraa Bilal as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan Hire Baraa Bilal as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman JordanHire Baraa Bilal as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman JordanHire Baraa Bilal as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan</p>
-            <i class="fa fa-star tasks__item__icon-favorite tasks__item__icon-favorite_is_checked"></i>
-          </div>
-
-          <div class="tasks__item tasks__item_bg_ship-cove">
-            <h3 class="tasks__item__heading">Hire Baraa</h3>
-            <p class="tasks__item__tag">work</p>
-            <p class="tasks__item__desc">Hire Baraa Bilal as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan</p>
-            <i class="fa fa-star tasks__item__icon-favorite"></i>
-          </div>
-
-          <div class="tasks__item tasks__item_bg_ship-cove">
-            <h3 class="tasks__item__heading">Hire Baraa</h3>
-            <p class="tasks__item__tag">work</p>
-            <p class="tasks__item__desc">Hire Baraa Bilal as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan</p>
-            <i class="fa fa-star tasks__item__icon-favorite"></i>
-          </div>
-
-          <div class="tasks__item tasks__item_bg_ship-cove">
-            <h3 class="tasks__item__heading">Hire Baraa</h3>
-            <p class="tasks__item__tag">work</p>
-            <p class="tasks__item__desc">Hire Baraa Bilal as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan</p>
-            <i class="fa fa-star tasks__item__icon-favorite"></i>
-          </div>
-
-          <div class="tasks__item tasks__item_bg_ship-cove">
-            <h3 class="tasks__item__heading">Hire Baraa</h3>
-            <p class="tasks__item__tag">work</p>
-            <p class="tasks__item__desc">Hire Baraa Bilal as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan</p>
-            <i class="fa fa-star tasks__item__icon-favorite"></i>
+        <div class="tasks__items" ui-sortable ng-model='tasksItems'>
+          <div class="tasks__item tasks__item_bg_{{arrayOfColors[$index]}}" ng-repeat='task in tasksItems | tasksItemFilter:filteredTag'>
+            <h3 class="tasks__item__heading">{{task.name}}</h3>
+            <p class="tasks__item__tag">{{task.tag}}</p>
+            <p class="tasks__item__desc">{{task.description}}</p>
+            <i class="fa fa-star tasks__item__icon-favorite" ng-class="{'tasks__item__icon-favorite_is_checked': task.favorite}" ng-click='changeFavorite($index)'></i>
           </div>
         </div>
       </div>
@@ -246,8 +207,9 @@
   <!-- build:js scripts/app.min.js -->
   <!-- inject:angularcustom:js -->
   <script src="app.js"></script>
-  <script src="components/aboutComponent/aboutComponentController.js"></script>
-  <script src="components/mainComponent/mainComponentController.js"></script>
+  <script src="components/tasksItemComponent/tasksItemDirective.js"></script>
+  <script src="components/tasksComponent/tasksComponentController.js"></script>
+  <script src="components/tasksComponent/tasksComponentItemsFilter.js"></script>
   <!-- endinject -->
   <!-- endbuild -->
 </body>

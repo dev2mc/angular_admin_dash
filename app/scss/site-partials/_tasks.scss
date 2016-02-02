@@ -1,6 +1,6 @@
 //styles for tasks block
 .tasks {
-  flex-shrink: 150;
+  flex-grow: 1;
 
   background: color(wild-sand);
 }
@@ -56,6 +56,7 @@
 
 .tasks__tags__list {
   display: flex;
+  flex-wrap: wrap;
   margin: 0;
   padding: 0;
 }
@@ -85,7 +86,7 @@
 .tasks__items {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   padding-left: 34px;
 }
 
@@ -156,4 +157,36 @@
 //classes for different background colors for tasks items
 .tasks__item_bg_ship-cove {
   background: color(ship-cove);
+}
+
+.tasks__item_bg_cornflower-blue {
+  background: color(cornflower-blue);
+}
+
+.tasks__item_bg_saffron-mango {
+  background: color(saffron-mango);
+}
+
+.tasks__item_bg_wisteria {
+  background: color(wisteria);
+}
+
+.tasks__item_bg_sunset-orange {
+  background: color(sunset-orange);
+}
+
+.tasks__item_bg_bermuda {
+  background: color(bermuda);
+}
+
+.tasks__item_bg_sunglow {
+  background: color(sunglow);
+}
+
+.tasks__item_bg_java {
+  background: color(java);
+}
+
+.tasks__item_bg_mantis {
+  background: color(mantis);
 }
