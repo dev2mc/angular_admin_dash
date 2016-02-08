@@ -7,11 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Lazakovich Valery">
   <!-- build:css styles/vendor.min.css -->
+
   <!-- bower:css -->
   <link rel="stylesheet" href="bower_components/bxslider-4/dist/jquery.bxslider.css" />
   <!-- endbower -->
   <!-- inject:vendor:css -->
   <link rel="stylesheet" href="styles/bootstrap.css">
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
   <link rel="stylesheet" href="styles/font-awesome.css">
   <!-- endinject -->
   <!-- endbuild -->
@@ -165,7 +167,7 @@
         <div class="tasks__top-bar">
           <h4 class="tasks__heading">Tasks</h4>
           <ul class="tasks__options">
-            <li class="tasks__option"><span class="tasks__option__icon  tasks__option__icon_ttip_add">+</span></li>
+            <li class="tasks__option" ng-click="open()"><span class="tasks__option__icon  tasks__option__icon_ttip_add">+</span></li>
             <li class="tasks__option" ng-click='toggleDelTasksVisible()'><span class="tasks__option__icon tasks__option__icon_ttip_del">&times</span></li>
           </ul>
         </div>
@@ -181,18 +183,18 @@
         </div>
         <div class="tasks__tags">
           <ul class="tasks__tags__list">
-            <li class="tasks__tags__item" ng-click='assignTag($index)' ng-repeat='tag in tasksTags'>{{tag}}</li>
+            <li class="tasks__tags__item" ng-click='assignTag($index);checkActiveTag($index)' ng-repeat='tag in tasksTags' ng-class='{"tasks__tags__item_is_active": tagsArrTest[$index]}'>{{tag}}</li>
           </ul>
         </div>
         <div class="tasks__items">
-          <div class="tasks__item tasks__item_bg_{{arrayOfColors[$index]}}" ng-repeat='task in tasksItems | tasksItemFilter:filteredTag'>
+          <div class="tasks__item tasks__item_bg_{{objOfColors[task._id.$oid]}}" ng-repeat='task in tasksItems | tasksItemFilter:filteredTag'>
             <h3 class="tasks__item__heading">{{task.name}}</h3>
             <p class="tasks__item__tag">{{task.tag}}</p>
             <p class="tasks__item__desc">{{task.description}}</p>
-            <i class="fa fa-star tasks__item__icon-favorite" ng-class="{'tasks__item__icon-favorite_is_checked': task.favorite}" ng-click='changeFavorite($index)'></i>
+            <i class="fa fa-star tasks__item__icon-favorite" ng-class="{'tasks__item__icon-favorite_is_checked': task.favorite}" ng-click='changeFavorite(task._id.$oid)'></i>
             <div class="tasks__item__delete-check">
-              <input class="tasks__item__checkbox" type="checkbox"  id="check_{{task.id}}">
-              <label class="tasks__item__label" for="check_{{task.id}}" ng-click='addTasksToDel(task.id)'></label>
+              <input class="tasks__item__checkbox" type="checkbox"  id="check_{{task._id.$oid}}">
+              <label class="tasks__item__label" for="check_{{task._id.$oid}}" ng-click='addTasksToDel(task._id.$oid)'></label>
             </div>
           </div>
         </div>
@@ -216,14 +218,16 @@
   <script src="bower_components/jquery-ui/jquery-ui.js"></script>
   <script src="bower_components/angular-ui-sortable/sortable.js"></script>
   <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:js scripts/app.min.js -->
   <!-- inject:angularcustom:js -->
   <script src="app.js"></script>
+  <script src="components/tasksComponent/newTaskModalInstanceWindCtrl.js"></script>
   <script src="components/tasksComponent/tasksComponentCtrl.js"></script>
   <script src="components/tasksComponent/tasksComponentItemsFilter.js"></script>
-  <script src="components/tasksItemComponent/tasksItemDirective.js"></script>
+  <script src="components/tasksComponent/tasksRemoteDataService.js"></script>
   <!-- endinject -->
   <!-- endbuild -->
 </body>

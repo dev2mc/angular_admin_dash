@@ -42,7 +42,8 @@ img {
 }
 
 button,
-input {
+input,
+textarea {
   color: inherit;
   font: inherit;
   margin: 0;
@@ -76,6 +77,10 @@ input[type="checkbox"] {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0;
+}
+
+textarea {
+  overflow: auto;
 }
 
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
@@ -156,7 +161,8 @@ body {
 }
 
 input,
-button {
+button,
+textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;

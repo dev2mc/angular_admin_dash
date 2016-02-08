@@ -85,7 +85,7 @@
   &::after {
     left: 100%;
 
-    content: 'Delete Items';
+    content: 'Delete Tasks';
   }
 }
 
@@ -93,7 +93,7 @@
   &::after {
     right: 100%;
 
-    content: 'Add Items';
+    content: 'Add Task';
   }
 }
 
@@ -193,6 +193,27 @@
   padding: 28px 16px;
 
   border-radius: 4px;
+
+  background: color(cornflower-blue);
+}
+
+//styles used in moments of adding or removing items
+.tasks__item.ng-enter {
+  transition: 0.5s linear all;
+  opacity: 0;
+}
+
+.tasks__item.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.tasks__item.ng-leave {
+  animation :0.5s tasks__item-leave-anim;
+}
+
+@keyframes tasks__item-leave-anim {
+  from { opacity:1; }
+  to { opacity:0; }
 }
 
 .tasks__item__heading {
@@ -262,13 +283,13 @@
 
   &:checked {
     & + .tasks__item__label {
-      @extend .icon-tasks__item-checkbox-checked-img
+      @extend .icon-tasks__item-checkbox-checked-img;
     }
   }
 
   &:not(:checked) {
     & + .tasks__item__label {
-      @extend .icon-tasks__item-checkbox-unchecked-img
+      @extend .icon-tasks__item-checkbox-unchecked-img;
     }
   }
 }
@@ -277,6 +298,8 @@
   display: block;
   width: 30px;
   height: 30px;
+
+  cursor: pointer;
 }
 
 //classes for different background colors for tasks items
@@ -326,4 +349,176 @@
   .tasks__item__delete-check {
     display: inline-block;
   }
+}
+
+//-------------------------------------------------------------
+//styles for modal window used for adding new tasks items
+.tasks__modal-window {
+  padding: 50px;
+}
+
+.tasks__modal-header {
+  margin-bottom: 25px;
+}
+
+.tasks__modal-title {
+  margin: 0;
+  padding: 0;
+
+  color: color(ebony-clay);
+  font-family: 'HelveticaNeueLTStd Roman';
+  font-size: 30px;
+  line-height: 1;
+}
+
+.tasks__modal-body {
+  margin-bottom: 25px;
+}
+
+.tasks__modal-group {
+  margin-bottom: 25px;
+}
+
+.tasks__modal-group_margin_small {
+  margin-bottom: 10px;
+}
+
+.tasks__modal-label {
+  margin: 0;
+  margin-bottom: 5px;
+  padding: 0;
+
+  color: color(ebony-clay);
+  font-family: 'HelveticaNeueLTStd Roman';
+  font-size: 16px;
+  line-height: 1;
+}
+
+.tasks__modal-input {
+  width: 250px;
+  padding: 4px 20px;
+
+  border: solid 1px lighten(color(ebony-clay), 60%);
+  border-radius: 4px;
+
+  color: color(ebony-clay);
+  font-family: 'HelveticaNeueLTStd Roman';
+  font-size: 14px;
+
+  &:focus {
+    border: solid 1px color(ebony-clay);
+    outline: none;
+  }
+}
+
+.tasks__modal-input.ng-invalid.ng-touched {
+  border: solid 1px color(alizarin-crimson);
+
+  box-shadow: 0 0 5px color(alizarin-crimson);
+}
+
+.tasks__modal-tags-container {
+  display: flex;
+
+  > * {
+    margin-right: 5px;
+  }
+
+  > *:last-child {
+    margin-right: 0;
+  }
+}
+
+.tasks__modal-tag {
+  padding: 2px 5px;
+
+  border-radius: 4px;
+
+  background: color(cadet-blue);
+
+  color: lighten(color(cadet-blue), 80%);
+  font-family: 'HelveticaNeueLTStd Roman';
+  font-size: 12px;
+
+  cursor: pointer;
+}
+
+.tasks__modal-footer {
+  display: flex;
+  justify-content: flex-end;
+
+  > * {
+    margin-right: 10px;
+  }
+
+  > *:last-child {
+    margin-right: 0;
+  }
+}
+
+.tasks__modal-button {
+  align-items: right;
+
+  padding: 5px 10px;
+
+  border: 0;
+  border-radius: 4px;
+
+  background: color(dove-gray);
+
+  color: color(whitecol);
+  font-family: 'HelveticaNeueLTStd Roman';
+  font-size: 14px;
+
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
+
+.tasks__modal-button_bg_cancel {
+  background: color(sunset-orange);
+}
+
+.tasks__modal-button_bg_add {
+  position: relative;
+
+  background: color(cornflower-blue);
+
+  &:disabled {
+    background: color(cadet-blue);
+
+    cursor: not-allowed;
+
+    &:hover,
+    &:focus {
+      &:after {
+        display: block;
+      }
+    }
+  }
+
+  &:after {
+    display: none;
+    position: absolute;
+    top: -47px;
+    right: -10%;
+    width: 115px;
+    padding: 5px;
+
+    border-radius: 4px;
+
+    background: color(cadet-blue);
+
+    color: lighten(color(cadet-blue), 30%);
+    font-size: 12px;
+
+    content: 'please, fill out all the input values';
+  }
+}
+
+.tasks__modal-button__icon {
+  margin-right: 5px;
 }

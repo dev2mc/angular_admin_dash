@@ -56,6 +56,10 @@
   content: "";
 }
 
+.fa-plus:before {
+  content: "";
+}
+
 .fa-comment:before {
   content: "";
 }

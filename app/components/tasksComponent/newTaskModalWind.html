@@ -1,0 +1,36 @@
+<div class="tasks__modal-window">
+  <div class="tasks__modal-header">
+    <h3 class="tasks__modal-title">Add data for the new task:</h3>
+  </div>
+
+  <div class="tasks__modal-body">
+    <form novalidate name="addTaskForm">
+      <div class="tasks__modal-group">
+        <p class="tasks__modal-label">Enter task name:</p>
+        <input class="tasks__modal-input" type="text" ng-model='newTask.name' name='newTaskName' required>
+      </div>
+
+      <div class="tasks__modal-group tasks__modal-group_margin_small">
+        <p class="tasks__modal-label">Choose a tag for the task:</p>
+        <div class="tasks__modal-tags-container">
+          <span class="tasks__modal-tag" ng-repeat='tag in tagsToChoose' ng-click='newTask.tag=tag'>{{tag}}</span>
+        </div>
+      </div>
+
+      <div class="tasks__modal-group">
+        <p class="tasks__modal-label">Or add a new tag:</p>
+        <input class="tasks__modal-input" type="text" ng-model='newTask.tag' name='newTaskTag' required>
+      </div>
+
+      <div class="tasks__modal-group">
+        <p class="tasks__modal-label">Enter description for the task:</p>
+        <textarea rows="5" class="tasks__modal-input" type="text" ng-model='newTask.description' name='newTaskDescription' required></textarea>
+      </div>
+    </form>
+  </div>
+
+  <div class="tasks__modal-footer">
+    <button class="tasks__modal-button tasks__modal-button_bg_add" type="button" ng-click="ok()" ng-disabled='addTaskForm.$invalid'><i class="fa fa-plus tasks__modal-button__icon"></i>Add Task</button>
+    <button class="tasks__modal-button tasks__modal-button_bg_cancel" type="button" ng-click="cancel()"><i class="fa fa-ban tasks__modal-button__icon"></i>Cancel</button>
+  </div>
+</div>

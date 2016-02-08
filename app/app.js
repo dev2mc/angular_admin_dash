@@ -8,7 +8,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.sortable',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'ui.bootstrap'
   ])
   // .config(function ($routeProvider) {
   //   $routeProvider
