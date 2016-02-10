@@ -1,19 +1,19 @@
 'use strict';
 angular.module('angularDashboardApp')
-  .controller('tasksComponentCtrl', function($scope, $uibModal, $log, $http, $q, tasksRemoteDataService) {
+  .controller('tasksComponentCtrl', function($scope, $uibModal, tasksRemoteDataService) {
     //------------------
     var getTasksArr = function() {
-      tasksRemoteDataService.getTasks().success(function(data) {
-        $scope.tasksItems = data;
+      tasksRemoteDataService.getTasks().then(function(resp) {
+        $scope.tasksItems = resp.data;
         $scope.randomColor();
         console.log($scope.tasksItems);
       });
     };
 
     $scope.addTask = function(newItem) {
-      tasksRemoteDataService.addTask(newItem).success(function(addedTask) {
-        console.log(addedTask);
-        $scope.tasksItems.push(addedTask);
+      tasksRemoteDataService.addTask(newItem).then(function(resp) {
+        console.log(resp.data);
+        $scope.tasksItems.push(resp.data);
       });
     };
 
@@ -36,7 +36,7 @@ angular.module('angularDashboardApp')
       if (typeof taskItemsToDel !== 'undefined' && taskItemsToDel.length > 0) {
         angular.forEach(taskItemsToDel, function(id, ind, arr) {
           var prom = tasksRemoteDataService.removeTask(id);
-          prom.success(function() {
+          prom.then(function() {
             for (var i = $scope.tasksItems.length - 1; i >= 0; i--) {
                 if ($scope.tasksItems[i]._id.$oid === id) {
                   $scope.tasksItems.splice(i, 1);
@@ -60,7 +60,7 @@ angular.module('angularDashboardApp')
       });
       if (item !== undefined) {
         item.favorite = !item.favorite;
-        tasksRemoteDataService.updateTask(item, id).success(function(){
+        tasksRemoteDataService.updateTask(item, id).then(function(){
           $scope.tasksItems[itemInd].favorite = !$scope.tasksItems[itemInd].favorite;
         });
       }
@@ -171,7 +171,6 @@ angular.module('angularDashboardApp')
     modalInstance.result.then(function (selectedItem) {
       $scope.selected = selectedItem;
     }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
     });
   };
 

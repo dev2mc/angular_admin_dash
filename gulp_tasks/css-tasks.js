@@ -12,7 +12,7 @@ var browserSync = require('browser-sync').create();
 var paths = require('../paths.json');
 
 //----------------------------------------------
-//--------------CSS COMPILATION---------------------------------------------------------
+//--------------CSS COMPILATION-----------------
 //----------------------------------------------
 
 //----------APP SCSS----------------------
@@ -30,6 +30,32 @@ var filterFiles = function(file) {
   };
 }
 
+var ignoredSelectors = [
+  //selectors for modal window which used for adding new task item
+  '.modal-open',
+  '.modal',
+  '.modal.fade .modal-dialog',
+  '.modal.in .modal-dialog',
+  '.modal-open .modal',
+  '.modal-dialog',
+  '.modal-content',
+  '.modal-backdrop',
+  '.modal-backdrop.fade',
+  '.modal-backdrop.in',
+  '.modal-header',
+  '.modal-header .close',
+  '.modal-title',
+  '.modal-body',
+  '.modal-footer',
+  '.modal-footer .btn + .btn',
+  '.modal-footer .btn-group .btn + .btn',
+  '.modal-footer .btn-block + .btn-block',
+  '.modal-scrollbar-measure',
+  '.modal-sm',
+  '.modal-lg',
+  '.modal.fade .modal-dialog'
+];
+
 //compile scss files into css and removed unused styles with uncess from files specified in filterFilesArr array
 gulp.task('scss', function () {
   gulp.src(paths.stylesScss)
@@ -41,7 +67,7 @@ gulp.task('scss', function () {
         browsers: ["Android 2.3", "Android >= 4", "Chrome >= 20", "Firefox >= 24", "Explorer >= 8", "iOS >= 6", "Opera >= 12", "Safari >= 6"],
         cascade: false
       }))
-      .pipe(p.if(filterFiles, p.uncss({html: [paths.app + '/index.html', paths.app + '/components/**/*.html']})))
+      .pipe(p.if(filterFiles, p.uncss({html: [paths.app + '/index.html', paths.app + '/components/**/*.html'], ignore: ignoredSelectors})))
     .pipe(p.sourcemaps.write())
     .pipe(p.rename(function(path) {
         path.dirname = "../styles/";

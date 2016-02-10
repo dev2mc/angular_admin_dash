@@ -17,5 +17,7 @@
   "partials": ["app/**/*.html", "!app/index.html", "!app/bower_components/**/*"],
   "html": "app/**/*.html",
   "dist": "dist",
-  "distScripts": "dist/scripts"
+  "distScripts": "dist/scripts",
+  "testUnit": "test/spec/**/*.js",
+  "testUnitDir": "test"
 }

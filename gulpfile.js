@@ -25,11 +25,6 @@ var paths = require('./paths.json');
 
 //wire all dependencies (vendor and custom files) into index.html
 gulp.task('wire', ['scss'], function() {
-  //inject bower dependencies into karma.conf.js config file
-  gulp.src('test/karma.conf.js')
-    .pipe(p.wiredep({devDependencies: true}))
-    .pipe(gulp.dest('test'));
-
   gulp.src(paths.app + '/index.html')
   //inject bower dependencies into index.html
   .pipe(p.wiredep())
@@ -54,6 +49,7 @@ var angHtmlPartJs = gulp.src(paths.partials)
     .pipe(p.htmlmin({collapseWhitespace: true}))
     .pipe(p.ngHtml2js({
       moduleName: paths.appName,
+      prefix: "../"
     }))
     .pipe(p.concat('partial.js'))
 
@@ -74,8 +70,16 @@ gulp.task('html', ['cleanDist', 'wire'], function() {
     .pipe(gulp.dest(paths.dist));
 });
 
+//inject tests into karma.conf.js file
+gulp.task('karma:inject', function() {
+  //inject bower dependencies into karma.conf.js config file
+  gulp.src('test/karma.conf.js')
+    .pipe(p.wiredep({devDependencies: true}))
+    .pipe(gulp.dest('test'));
+})
+
 //config for karma testing
-gulp.task('test_single', ['dev'], function (done) {
+gulp.task('test:karma', ['karma:inject'], function (done) {
   new Server({
     configFile: __dirname + '\\test\\karma.conf.js',
     singleRun: true
@@ -125,7 +129,6 @@ gulp.task('serve', ['sprites', 'scss', 'wire'], function() {
     server: './' + paths.app
   });
 
-
   //watcher for scss(sass)
   gulp.watch(paths.stylesScss, {
     interval: 1000, // default 100
@@ -146,7 +149,7 @@ gulp.task('serve', ['sprites', 'scss', 'wire'], function() {
     mode: 'poll'
   }, ['wire']);
 
-  //watcher for angular cutom js files
+  //watcher for angular custom js files
   gulp.watch([paths.app + '/app.js', paths.app + '/components/**/*.js'], {
     interval: 1000, // default 100
     debounceDelay: 1000, // default 500
@@ -164,11 +167,26 @@ gulp.task('serve', ['sprites', 'scss', 'wire'], function() {
 //task for compiling development assets but without browserSync
 gulp.task('dev', ['sprites', 'scss', 'wire']);
 
-//default gulp task will serve development envirnment from app folder
+//default gulp task will serve development environment from app folder
 gulp.task('default', ['serve']);
 
 //task for single run karma unit test of the app
-gulp.task('test', ['test_single']);
+gulp.task('test', ['test:karma']);
+
+//set up watchers for continious testing if files changed
+gulp.task('test:watch', ['test:karma'], function() {
+  gulp.watch([paths.app + '/app.js', paths.app + '/components/**/*.js'], {
+    interval: 1000, // default 100
+    debounceDelay: 1000, // default 500
+    mode: 'poll'
+  }, ['test:karma']);
+
+  gulp.watch([paths.testUnit, paths.testUnitDir + '/karma.conf.js'], {
+    interval: 1000, // default 100
+    debounceDelay: 1000, // default 500
+    mode: 'poll'
+  }, ['test:karma']);
+});
 
 //task for building app for distribution
 gulp.task('build', ['html', 'dist_copy_assets', 'minImg']);
