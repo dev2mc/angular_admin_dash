@@ -1,40 +1,39 @@
 'use strict';
 angular.module('angularDashboardApp')
   .controller('tasksComponentCtrl', function($scope, $uibModal, tasksRemoteDataService) {
+    // var ctrl = this;
     //------------------
-    var getTasksArr = function() {
+    $scope.getTasksArr = function() {
       tasksRemoteDataService.getTasks().then(function(resp) {
         $scope.tasksItems = resp.data;
         $scope.randomColor();
-        console.log($scope.tasksItems);
       });
     };
 
     $scope.addTask = function(newItem) {
       tasksRemoteDataService.addTask(newItem).then(function(resp) {
-        console.log(resp.data);
         $scope.tasksItems.push(resp.data);
       });
     };
 
     //initial array of task__item's id to delete
-    var taskItemsToDel = [];
+    $scope.taskItemsToDel = [];
 
-    //function for adding items for deletion to array taskItemsToDel
+    //function for adding items for deletion to array $scope.taskItemsToDel
     $scope.addTasksToDel = function(id) {
-      if (taskItemsToDel.indexOf(id) === -1) {
-        taskItemsToDel.push(id);
+      if ($scope.taskItemsToDel.indexOf(id) === -1) {
+        $scope.taskItemsToDel.push(id);
       } else {
-        var itemInd = taskItemsToDel.indexOf(id);
-        taskItemsToDel.splice(itemInd, 1);
+        var itemInd = $scope.taskItemsToDel.indexOf(id);
+        $scope.taskItemsToDel.splice(itemInd, 1);
       }
     };
 
     // function for removing tasks from tasksItems array
     $scope.removeTasks = function() {
-      //check if taskItemsToDel array is defined and is not empty
-      if (typeof taskItemsToDel !== 'undefined' && taskItemsToDel.length > 0) {
-        angular.forEach(taskItemsToDel, function(id, ind, arr) {
+      //check if $scope.taskItemsToDel array is defined and is not empty
+      if (typeof $scope.taskItemsToDel !== 'undefined' && $scope.taskItemsToDel.length > 0) {
+        angular.forEach($scope.taskItemsToDel, function(id, ind, arr) {
           var prom = tasksRemoteDataService.removeTask(id);
           prom.then(function() {
             for (var i = $scope.tasksItems.length - 1; i >= 0; i--) {
@@ -42,7 +41,11 @@ angular.module('angularDashboardApp')
                   $scope.tasksItems.splice(i, 1);
                 }
             }
-            arr.splice(ind, 1);
+            if ($scope.taskItemsToDel.length === 1) {
+              $scope.taskItemsToDel = [];
+            } else {
+              arr.splice(ind, 1);
+            }
           });
         });
       }
@@ -68,7 +71,7 @@ angular.module('angularDashboardApp')
     //------------------
 
     //array of color for tasks__item background
-    var taskItemBgColorsArr = ['ship-cove', 'cornflower-blue', 'saffron-mango', 'wisteria', 'sunset-orange', 'bermuda', 'sunglow', 'java', 'mantis'];
+    $scope.taskItemBgColorsArr = ['ship-cove', 'cornflower-blue', 'saffron-mango', 'wisteria', 'sunset-orange', 'bermuda', 'sunglow', 'java', 'mantis'];
 
     //object for storing random background values for tasks items
     $scope.objOfColors = {};
@@ -85,8 +88,8 @@ angular.module('angularDashboardApp')
           }
         }
         if (idInObj === false) {
-          var colInd = Math.floor((Math.random() * taskItemBgColorsArr.length) + 0);
-          $scope.objOfColors[taskId] = taskItemBgColorsArr[colInd];
+          var colInd = Math.floor((Math.random() * $scope.taskItemBgColorsArr.length) + 0);
+          $scope.objOfColors[taskId] = $scope.taskItemBgColorsArr[colInd];
         }
       });
     };
@@ -99,7 +102,7 @@ angular.module('angularDashboardApp')
     $scope.tasksTags = [];
 
     //function for getting all tasks tags
-    var getAllTasksTags = function() {
+    $scope.getAllTasksTags = function() {
       $scope.tasksTags = ['all'];
       angular.forEach($scope.tasksItems, function(v) {
         if ($scope.tasksTags.indexOf(v.tag) === -1) {
@@ -118,7 +121,7 @@ angular.module('angularDashboardApp')
 
     //update tasksTags array if tasksItems changed
     $scope.$watchCollection('tasksItems', function() {
-      getAllTasksTags();
+      $scope.getAllTasksTags();
     });
 
     //function for assigning tag
@@ -128,7 +131,7 @@ angular.module('angularDashboardApp')
 
     $scope.tagsArrTest = [];
 
-    var createTagsArrTest = function () {
+    $scope.createTagsArrTest = function () {
       angular.forEach($scope.tasksTags, function(v, i) {
         if (v === $scope.filteredTag) {
           $scope.tagsArrTest[i] = true;
@@ -146,18 +149,12 @@ angular.module('angularDashboardApp')
       $scope.delTasksItemsVisible = !$scope.delTasksItemsVisible;
     };
 
-
 //---------------------------------------------------------------
 //---------------------------------------------------------------
-  $scope.animationsEnabled = true;
-
-  $scope.open = function (size) {
-
-    var modalInstance = $uibModal.open({
-      animation: $scope.animationsEnabled,
+    $scope.modWindParamsObj = {
+      animation: true,
       templateUrl: '../components/tasksComponent/newTaskModalWind.html',
       controller: 'newTaskModalInstanceWindCtrl',
-      size: size,
       resolve: {
         addTask: function () {
           return $scope.addTask;
@@ -166,24 +163,18 @@ angular.module('angularDashboardApp')
           return $scope.tasksTags;
         }
       }
-    });
+    };
 
-    modalInstance.result.then(function (selectedItem) {
-      $scope.selected = selectedItem;
-    }, function () {
-    });
-  };
-
-  $scope.toggleAnimation = function () {
-    $scope.animationsEnabled = !$scope.animationsEnabled;
-  };
+    $scope.open = function () {
+      $uibModal.open($scope.modWindParamsObj);
+    };
 //---------------------------------------------------------------
 //---------------------------------------------------------------
-    var init = function() {
-      createTagsArrTest();
-      getTasksArr();
+    $scope.init = function() {
+      $scope.getTasksArr();
+      $scope.createTagsArrTest();
       $scope.checkActiveTag(0);
     };
 
-    init();
+    $scope.init();
   });

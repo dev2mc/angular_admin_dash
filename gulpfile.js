@@ -181,7 +181,7 @@ gulp.task('test:watch', ['test:karma'], function() {
     mode: 'poll'
   }, ['test:karma']);
 
-  gulp.watch([paths.testUnit, paths.testUnitDir + '/karma.conf.js'], {
+  gulp.watch([paths.testUnit], {
     interval: 1000, // default 100
     debounceDelay: 1000, // default 500
     mode: 'poll'

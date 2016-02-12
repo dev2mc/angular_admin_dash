@@ -10,6 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.11.1",
+    "deep-equal": "^1.0.1",
     "del": "^2.2.0",
     "event-stream": "^3.3.2",
     "gulp": "^3.9.0",
