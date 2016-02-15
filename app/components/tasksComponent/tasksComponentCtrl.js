@@ -4,15 +4,15 @@ angular.module('angularDashboardApp')
     // var ctrl = this;
     //------------------
     $scope.getTasksArr = function() {
-      tasksRemoteDataService.getTasks().then(function(resp) {
-        $scope.tasksItems = resp.data;
+      tasksRemoteDataService.getTasks().then(function(data) {
+        $scope.tasksItems = data;
         $scope.randomColor();
       });
     };
 
     $scope.addTask = function(newItem) {
-      tasksRemoteDataService.addTask(newItem).then(function(resp) {
-        $scope.tasksItems.push(resp.data);
+      tasksRemoteDataService.addTask(newItem).then(function(data) {
+        $scope.tasksItems.push(data);
       });
     };
 

@@ -101,7 +101,7 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
 
       mocktasksRemoteDataService.getTasks = function() {
         var defer = $q.defer();
-        var response = {data: mocktasksRemoteDataService.data};
+        var response = mocktasksRemoteDataService.data;
         defer.resolve(response);
         return defer.promise;
       };
@@ -115,7 +115,7 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
             taskItem = mocktasksRemoteDataService.data[i];
           }
         }
-        response.data = taskItem;
+        response = taskItem;
         defer.resolve(response);
         return defer.promise;
       };
@@ -127,7 +127,7 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
         task._id = {};
         task._id.$oid = randomId + '';
         mocktasksRemoteDataService.data.push(task);
-        response.data = task;
+        response = task;
         defer.resolve(response);
         return defer.promise;
       };
@@ -142,7 +142,7 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
             taskItem = mocktasksRemoteDataService.data.splice(i, 1);
           }
         }
-        response.data = taskItem;
+        response = taskItem;
         defer.resolve(response);
         return defer.promise;
       };
@@ -155,7 +155,7 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
             mocktasksRemoteDataService.data[i] = data;
           }
         }
-        response.data = data;
+        response = data;
         defer.resolve(response);
         return defer.promise;
       };
@@ -178,7 +178,7 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
 
   describe('scope.init() function execution: ', function() {
     it('should invoke $scope.createTagsArrTest() function', function() {
-      spyOn($scope, 'createTagsArrTest');
+      spyOn($scope, 'createTagsArrTest').and.callThrough();
       $scope.init();
       $scope.$apply();
       expect($scope.createTagsArrTest).toHaveBeenCalled();
@@ -198,6 +198,7 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
       expect($scope.checkActiveTag).toHaveBeenCalledWith(0);
     });
   });
+
 
   describe('$scope.getTasksArr() function execution: ', function() {
     it('should invoke tasksRemoteDataService.getTasks() function', function() {
