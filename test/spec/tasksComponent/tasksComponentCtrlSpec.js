@@ -532,7 +532,7 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
       expect(typeof $scope.modWindParamsObj).toEqual('object');
     });
 
-    it('$scope.open() method should invoke $uibModal.open() function with a given object($scope.modWindParamsObj) as a parameter', function() {
+    it('$scope.open() method should invoke $uibModal.open() function with a given object ($scope.modWindParamsObj) as a parameter', function() {
        $scope.modWindParamsObj = {
         animation: true,
         templateUrl: '../components/tasksComponent/newTaskModalWind.html',
