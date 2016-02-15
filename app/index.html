@@ -187,14 +187,14 @@
           </ul>
         </div>
         <div class="tasks__items">
-          <div class="tasks__item tasks__item_bg_{{objOfColors[task._id.$oid]}}" ng-repeat='task in tasksItems | tasksComponentItemsFilter:filteredTag'>
+          <div class="tasks__item tasks__item_bg_{{objOfColors[task._id]}}" ng-repeat='task in tasksItems | tasksComponentItemsFilter:filteredTag'>
             <h3 class="tasks__item__heading">{{task.name}}</h3>
             <p class="tasks__item__tag">{{task.tag}}</p>
             <p class="tasks__item__desc">{{task.description}}</p>
-            <i class="fa fa-star tasks__item__icon-favorite" ng-class="{'tasks__item__icon-favorite_is_checked': task.favorite}" ng-click='changeFavorite(task._id.$oid)'></i>
+            <i class="fa fa-star tasks__item__icon-favorite" ng-class="{'tasks__item__icon-favorite_is_checked': task.favorite}" ng-click='changeFavorite(task._id)'></i>
             <div class="tasks__item__delete-check">
-              <input class="tasks__item__checkbox" type="checkbox"  id="check_{{task._id.$oid}}">
-              <label class="tasks__item__label" for="check_{{task._id.$oid}}" ng-click='addTasksToDel(task._id.$oid)'></label>
+              <input class="tasks__item__checkbox" type="checkbox"  id="check_{{task._id}}">
+              <label class="tasks__item__label" for="check_{{task._id}}" ng-click='addTasksToDel(task._id)'></label>
             </div>
           </div>
         </div>

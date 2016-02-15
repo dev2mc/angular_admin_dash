@@ -7,11 +7,27 @@ angular.module('angularDashboardApp')
       tasksRemoteDataService.getTasks().then(function(data) {
         $scope.tasksItems = data;
         $scope.randomColor();
+        // console.log($scope.tasksItems);
       });
     };
 
+    $scope.genRandomNumb = function() {
+      var idLength = 7;
+      var numberStr = Math.floor((Math.random() * 10000000) + 1) + '';
+      if (numberStr.length < idLength) {
+        var diff = idLength - numberStr.length;
+        for (var i = 1; i <= diff; i++) {
+          numberStr = '0' + numberStr;
+        }
+      }
+      return numberStr;
+    };
+
     $scope.addTask = function(newItem) {
+      newItem._id = $scope.genRandomNumb();
+      console.log(newItem);
       tasksRemoteDataService.addTask(newItem).then(function(data) {
+        console.log(data);
         $scope.tasksItems.push(data);
       });
     };
@@ -37,7 +53,7 @@ angular.module('angularDashboardApp')
           var prom = tasksRemoteDataService.removeTask(id);
           prom.then(function() {
             for (var i = $scope.tasksItems.length - 1; i >= 0; i--) {
-                if ($scope.tasksItems[i]._id.$oid === id) {
+                if ($scope.tasksItems[i]._id === id) {
                   $scope.tasksItems.splice(i, 1);
                 }
             }
@@ -56,7 +72,7 @@ angular.module('angularDashboardApp')
       var item;
       var itemInd;
       angular.forEach($scope.tasksItems, function(v, i){
-        if (v._id.$oid === id) {
+        if (v._id === id) {
           item = angular.copy(v);
           itemInd = i;
         }
@@ -79,7 +95,7 @@ angular.module('angularDashboardApp')
     // function for randomizing background color of tasks items
     $scope.randomColor = function() {
       angular.forEach($scope.tasksItems, function(value) {
-        var taskId = value._id.$oid;
+        var taskId = value._id;
         var idInObj = false;
         for (var key in $scope.objOfColors) {
           if (key === taskId) {

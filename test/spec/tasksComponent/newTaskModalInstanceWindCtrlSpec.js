@@ -16,7 +16,6 @@ describe('tasksComponent: controller: newTaskModalInstanceWindCtrl - ', function
     };
 
     addTask = function(task) {
-      console.log(task);
     };
 
     tasksTags = ['all', 'shopping', 'home', 'entertainment'];

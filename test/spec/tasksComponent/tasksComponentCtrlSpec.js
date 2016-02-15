@@ -6,88 +6,70 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
 
   beforeEach(function() {
     dummyTasksData = [
-        {
-          _id: {
-            $oid: '000001'
-          },
-          name: 'Item 1',
-          tag: 'work',
-          description: 'Hire Baraa Bilal shopping as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan',
-          favorite: false
-        },
-        {
-          _id: {
-            $oid: '000002'
-          },
-          name: 'Item 2',
-          tag: 'entertainment',
-          description: 'Hire Baraa shopping Bilal work as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan',
-          favorite: true
-        },
-        {
-          _id: {
-            $oid: '000003'
-          },
-          name: 'Item 3',
-          tag: 'work',
-          description: 'Hire Baraa Bilal entertainment as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan',
-          favorite: false
-        },
-        {
-          _id: {
-            $oid: '000004'
-          },
-          name: 'Item 4',
-          tag: 'shopping',
-          description: 'Hire Baraa work Bilal as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan',
-          favorite: false
-        },
-        {
-          _id: {
-            $oid: '000005'
-          },
-          name: 'Item 5',
-          tag: 'work',
-          description: 'Hire Baraa Bilal as CEO for home Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan',
-          favorite: true
-        },
-        {
-          _id: {
-            $oid: '000006'
-          },
-          name: 'Item 6',
-          tag: 'home',
-          description: 'Hire Baraa Bilal as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan',
-          favorite: false
-        },
-        {
-          _id: {
-            $oid: '000007'
-          },
-          name: 'Item 7',
-          tag: 'shopping',
-          description: 'Hire Baraa work Bilal as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan',
-          favorite: false
-        },
-        {
-          _id: {
-            $oid: '000008'
-          },
-          name: 'Item 8',
-          tag: 'work',
-          description: 'Hire Baraa Bilal as CEO for home Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan',
-          favorite: true
-        },
-        {
-          _id: {
-            $oid: '000009'
-          },
-          name: 'Item 9',
-          tag: 'home',
-          description: 'Hire Baraa Bilal as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan',
-          favorite: false
-        }
-      ];
+      {
+        _id: '4821307',
+        name: 'Item 1',
+        tag: 'work',
+        description: 'Hire Baraa Bilal shopping as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan',
+        favorite: false
+      },
+      {
+        _id: '2656382',
+        name: 'Item 2',
+        tag: 'entertainment',
+        description: 'Hire Baraa shopping Bilal work as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan',
+        favorite: true
+      },
+      {
+        _id: '4755882',
+        name: 'Item 3',
+        tag: 'work',
+        description: 'Hire Baraa Bilal entertainment as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan',
+        favorite: false
+      },
+      {
+        _id: '5667210',
+        name: 'Item 4',
+        tag: 'shopping',
+        description: 'Hire Baraa work Bilal as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan',
+        favorite: false
+      },
+      {
+        _id: '3306098',
+        name: 'Item 5',
+        tag: 'work',
+        description: 'Hire Baraa Bilal as CEO for home Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan',
+        favorite: true
+      },
+      {
+        _id: '4707922',
+        name: 'Item 6',
+        tag: 'home',
+        description: 'Hire Baraa Bilal as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan',
+        favorite: false
+      },
+      {
+        _id: '7017712',
+        name: 'Item 7',
+        tag: 'shopping',
+        description: 'Hire Baraa work Bilal as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan',
+        favorite: false
+      },
+      {
+        _id: '5821090',
+        name: 'Item 8',
+        tag: 'work',
+        description: 'Hire Baraa Bilal as CEO for home Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan',
+        favorite: true
+      },
+      {
+        _id: '1195574',
+        name: 'Item 9',
+        tag: 'home',
+        description: 'Hire Baraa Bilal as CEO for Apple tomorrow at 9PM in the meeting at Lazi’ Cafe in Amman Jordan',
+        favorite: false
+      }
+    ];
   });
 
   beforeEach(function() {
@@ -111,7 +93,7 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
         var defer = $q.defer();
         var response = {};
         for (var i = 0; i < mocktasksRemoteDataService.data.length - 1; i++) {
-          if (mocktasksRemoteDataService.data[i]._id.$oid === id) {
+          if (mocktasksRemoteDataService.data[i]._id === id) {
             taskItem = mocktasksRemoteDataService.data[i];
           }
         }
@@ -123,9 +105,9 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
       mocktasksRemoteDataService.addTask = function(task) {
         var defer = $q.defer();
         var response = {};
-        var randomId = Math.floor((Math.random() * 999990) + 1);
-        task._id = {};
-        task._id.$oid = randomId + '';
+        // var randomId = Math.floor((Math.random() * 999990) + 1);
+        // task._id = {};
+        // task._id = randomId + '';
         mocktasksRemoteDataService.data.push(task);
         response = task;
         defer.resolve(response);
@@ -138,7 +120,7 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
 
         var defer = $q.defer();
         for (var i = 0; i < mocktasksRemoteDataService.data.length - 1; i++) {
-          if (mocktasksRemoteDataService.data[i]._id.$oid === id) {
+          if (mocktasksRemoteDataService.data[i]._id === id) {
             taskItem = mocktasksRemoteDataService.data.splice(i, 1);
           }
         }
@@ -151,7 +133,7 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
         var defer = $q.defer();
         var response = {};
         for (var i = 0; i < mocktasksRemoteDataService.data.length - 1; i++) {
-          if (mocktasksRemoteDataService.data[i]._id.$oid === id) {
+          if (mocktasksRemoteDataService.data[i]._id === id) {
             mocktasksRemoteDataService.data[i] = data;
           }
         }
@@ -236,6 +218,29 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
         description: 'test description',
         favorite: false
       };
+    });
+
+    it('should invoke $scope.genRandomNumb() function', function() {
+      spyOn($scope, 'genRandomNumb');
+      $scope.addTask(newTestTaskItem);
+      expect($scope.genRandomNumb).toHaveBeenCalled();
+    });
+
+    it('should add randomly generated _id property to newTestTaskItem object (using $scope.genRandomNumb() function)', function() {
+      $scope.addTask(newTestTaskItem);
+      expect(newTestTaskItem._id).toBeDefined();
+      expect(typeof newTestTaskItem._id).toEqual('string');
+      expect(newTestTaskItem._id.length).toEqual(7);
+    });
+
+    it('randomly generated newTestTaskItem _id property should be a string', function() {
+      $scope.addTask(newTestTaskItem);
+      expect(typeof newTestTaskItem._id).toEqual('string');
+    });
+
+    it('randomly generated newTestTaskItem _id property should be have length of 7 symbols', function() {
+      $scope.addTask(newTestTaskItem);
+      expect(newTestTaskItem._id.length).toEqual(7);
     });
 
     it('should invoke tasksRemoteDataService.addTask() function with newTaskItem parameter', function() {
@@ -337,9 +342,9 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
       beforeEach(function() {
         oldArr = $scope.tasksItems;
         firstTasksItem = oldArr[0];
-        firstTasksItemId = firstTasksItem._id.$oid;
+        firstTasksItemId = firstTasksItem._id;
         lastTasksItem = oldArr[oldArr.length - 1];
-        lastTasksItemId = lastTasksItem._id.$oid;
+        lastTasksItemId = lastTasksItem._id;
 
         $scope.taskItemsToDel = [firstTasksItemId, lastTasksItemId];
         $scope.removeTasks();
@@ -364,7 +369,7 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
       $scope.tasksItems = dummyTasksData;
       middleElemInd = Math.round($scope.tasksItems.length / 2);
       middleElem = $scope.tasksItems[middleElemInd];
-      middleElemId = middleElem._id.$oid;
+      middleElemId = middleElem._id;
     });
 
     it('tasksRemoteDataService.updateTask() function should be invoked with "item" and "id" parameters', function() {
@@ -409,12 +414,12 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
       expect(typeOfObjOfColors).toEqual('object');
     });
 
-    it('keys of $scope.objOfColors object should be equal to _id.$oid properties of elements of $scope.tasksItems array', function() {
+    it('keys of $scope.objOfColors object should be equal to _id properties of elements of $scope.tasksItems array', function() {
       $scope.randomColor();
       var objOfColorsKeys = Object.keys($scope.objOfColors);
       var idsOfTasksItems = [];
       $scope.tasksItems.forEach(function(v, i) {
-        idsOfTasksItems[i] = v._id.$oid;
+        idsOfTasksItems[i] = v._id;
       });
       expect(objOfColorsKeys).toEqual(idsOfTasksItems);
     });
