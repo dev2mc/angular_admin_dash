@@ -3,9 +3,10 @@ angular.module('angularDashboardApp')
   .controller('newTaskModalInstanceWindCtrl', function ($scope, $uibModalInstance, addTask, tasksTags) {
 
     $scope.addTask = addTask;
+
     $scope.tagsToChoose = angular.copy(tasksTags);
 
-    var delAllTag = function() {
+    $scope.delAllTag = function() {
       angular.forEach($scope.tagsToChoose, function(v, i, a){
         if (v === 'all') {
           a.splice(i, 1);
@@ -28,9 +29,9 @@ angular.module('angularDashboardApp')
       $uibModalInstance.dismiss('cancel');
     };
 
-    var init = function() {
-      delAllTag();
+    $scope.init = function() {
+      $scope.delAllTag();
     };
 
-    init();
+    $scope.init();
   });
