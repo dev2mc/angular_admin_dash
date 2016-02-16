@@ -10,7 +10,8 @@ angular.module('angularDashboardApp')
         return $http.get(collectionsUrl + collection, {
           params: {apiKey: apiKeyStr}
         }).then(function(response) {
-          return response.data;
+          var data = response.data;
+          return data;
         });
       },
       getSingleTask: function (id) {

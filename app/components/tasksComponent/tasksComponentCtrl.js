@@ -7,7 +7,6 @@ angular.module('angularDashboardApp')
       tasksRemoteDataService.getTasks().then(function(data) {
         $scope.tasksItems = data;
         $scope.randomColor();
-        // console.log($scope.tasksItems);
       });
     };
 
@@ -25,10 +24,9 @@ angular.module('angularDashboardApp')
 
     $scope.addTask = function(newItem) {
       newItem._id = $scope.genRandomNumb();
-      console.log(newItem);
       tasksRemoteDataService.addTask(newItem).then(function(data) {
-        console.log(data);
         $scope.tasksItems.push(data);
+        $scope.randomColor();
       });
     };
 
