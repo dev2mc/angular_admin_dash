@@ -53,7 +53,10 @@ var ignoredSelectors = [
   '.modal-scrollbar-measure',
   '.modal-sm',
   '.modal-lg',
-  '.modal.fade .modal-dialog'
+  '.modal.fade .modal-dialog',
+  //selector for font-awesome
+  '.fa .fa-times-circle',
+  '.fa-times-circle'
 ];
 
 //compile scss files into css and removed unused styles with uncess from files specified in filterFilesArr array

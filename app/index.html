@@ -199,6 +199,9 @@
           </div>
         </div>
       </div>
+      <div class="tasks__error-wrapper" ng-show='errorVisibility'>
+        <error-task code='code' status='status' close='errorMessClose()'></error-task>
+      </div>
     </main>
   </div>
 
@@ -226,6 +229,7 @@
   <script src="app.js"></script>
   <script src="components/tasksComponent/newTaskModalInstanceWindCtrl.js"></script>
   <script src="components/tasksComponent/tasksComponentCtrl.js"></script>
+  <script src="components/tasksComponent/tasksComponentErrMesDirective.js"></script>
   <script src="components/tasksComponent/tasksComponentItemsFilter.js"></script>
   <script src="components/tasksComponent/tasksRemoteDataService.js"></script>
   <!-- endinject -->

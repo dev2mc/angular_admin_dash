@@ -1,5 +1,6 @@
 //styles for tasks block
 .tasks {
+  position: relative;
   flex-grow: 1;
 
   background: color(wild-sand);
@@ -199,7 +200,7 @@
 
 //styles used in moments of adding or removing items
 .tasks__item.ng-enter {
-  transition: 0.5s linear all;
+  transition: .5s linear all;
   opacity: 0;
 }
 
@@ -208,12 +209,12 @@
 }
 
 .tasks__item.ng-leave {
-  animation :0.5s tasks__item-leave-anim;
+  animation: .5s tasks__item-leave-anim;
 }
 
 @keyframes tasks__item-leave-anim {
-  from { opacity:1; }
-  to { opacity:0; }
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
 .tasks__item__heading {
@@ -521,4 +522,70 @@
 
 .tasks__modal-button__icon {
   margin-right: 5px;
+}
+
+//styles for tasks__error element
+.tasks__error-wrapper {
+  position: absolute;
+  top: 58px;
+  right: 0;
+}
+
+.tasks__error {
+  position: relative;
+  width: 350px;
+  padding: 40px;
+
+  background: color(your-pink);
+}
+
+.tasks__error__heading {
+  margin: 0;
+  margin-bottom: 15px;
+  padding: 0;
+
+  color: color(monza);
+  font-family: 'HelveticaNeueLTStd Bold';
+  font-size: 18px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.tasks__error__apology, .tasks__error__advise, .tasks__error__stats{
+  margin: 0;
+  margin-bottom: 8px;
+  padding: 0;
+
+  color: color(monza);
+  font-family: 'HelveticaNeueLTStd Roman';
+  font-size: 16px;
+  line-height: 1;
+}
+
+.tasks__error__stats {
+  margin-bottom: 15px;
+}
+
+.tasks__error__code {
+  font-family: 'HelveticaNeueLTStd Bold';
+  font-size: 17px;
+}
+
+.tasks__error__status {
+  font-style: italic;
+}
+
+.tasks__error__advise {
+  margin-bottom: 0;
+}
+
+.tasks__error__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  color: color(monza);
+  font-size: 35px;
+
+  cursor: pointer;
 }

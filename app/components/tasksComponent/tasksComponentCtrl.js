@@ -7,6 +7,8 @@ angular.module('angularDashboardApp')
       tasksRemoteDataService.getTasks().then(function(data) {
         $scope.tasksItems = data;
         $scope.randomColor();
+      }).catch(function(res) {
+        $scope.errorMessOpen(res.status, res.data.message);
       });
     };
 
@@ -27,6 +29,8 @@ angular.module('angularDashboardApp')
       tasksRemoteDataService.addTask(newItem).then(function(data) {
         $scope.tasksItems.push(data);
         $scope.randomColor();
+      }).catch(function(res) {
+        $scope.errorMessOpen(res.status, res.statusText);
       });
     };
 
@@ -60,7 +64,9 @@ angular.module('angularDashboardApp')
             } else {
               arr.splice(ind, 1);
             }
-          });
+          }).catch(function(res) {
+              $scope.errorMessOpen(res.status, res.statusText);
+            });
         });
       }
     };
@@ -79,7 +85,9 @@ angular.module('angularDashboardApp')
         item.favorite = !item.favorite;
         tasksRemoteDataService.updateTask(item, id).then(function(){
           $scope.tasksItems[itemInd].favorite = !$scope.tasksItems[itemInd].favorite;
-        });
+        }).catch(function(res) {
+            $scope.errorMessOpen(res.status, res.statusText);
+          });
       }
     };
     //------------------
@@ -184,6 +192,22 @@ angular.module('angularDashboardApp')
     };
 //---------------------------------------------------------------
 //---------------------------------------------------------------
+    //functions and variable for error handling in case of failed responses from the server
+    $scope.code = '404';
+    $scope.status = 'No such item on server';
+    $scope.errorVisibility = false;
+    $scope.errorMessClose = function() {
+      $scope.errorVisibility = false;
+      $scope.code = '';
+      $scope.status = '';
+    };
+    $scope.errorMessOpen = function(code, status) {
+      $scope.code = code;
+      $scope.status = status;
+      $scope.errorVisibility = true;
+    };
+//---------------------------------------------------------------
+
     $scope.init = function() {
       $scope.getTasksArr();
       $scope.createTagsArrTest();

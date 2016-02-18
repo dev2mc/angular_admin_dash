@@ -187,6 +187,32 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
       expect(tasksRemoteDataService.getTasks).toHaveBeenCalled();
     });
 
+    it('in case of rejected promise should invoke $scope.errorMessOpen() function with certain parameters', function () {
+      var status = '404';
+      var message = 'collection was not found';
+
+      inject(function($q) {
+        tasksRemoteDataService.getTasks = function() {
+          var prom = $q.defer();
+          var reasonObj = {
+            status: '404',
+            data: {
+              message: 'collection was not found'
+            }
+          };
+          prom.reject(reasonObj);
+          return prom.promise;
+        };
+      });
+
+      spyOn(scope, 'errorMessOpen');
+
+      scope.getTasksArr();
+      scope.$apply();
+
+      expect(scope.errorMessOpen).toHaveBeenCalledWith(status, message);
+    });
+
     describe('tasksRemoteDataService.getTasks method: ', function() {
       it('should save fetched data to $scope.tasksItems which equal to tasksArray array', function() {
         scope.tasksItems = [];
@@ -279,6 +305,30 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
       scope.$apply();
       expect(scope.randomColor).toHaveBeenCalled();
     });
+
+    it('in case of rejected promise should invoke $scope.errorMessOpen() function with certain parameters', function () {
+      var status = '404';
+      var message = 'item was not found';
+
+      inject(function($q) {
+        tasksRemoteDataService.addTask = function() {
+          var prom = $q.defer();
+          var reasonObj = {
+            status: '404',
+            statusText: 'item was not found'
+          };
+          prom.reject(reasonObj);
+          return prom.promise;
+        };
+      });
+
+      spyOn(scope, 'errorMessOpen');
+
+      scope.addTask(newTestTaskItem);
+      scope.$apply();
+
+      expect(scope.errorMessOpen).toHaveBeenCalledWith(status, message);
+    });
   });
 
   describe('$scope.addTasksToDel() function execution: ', function() {
@@ -338,6 +388,30 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
       scope.removeTasks();
       scope.$apply();
       expect(tasksRemoteDataService.removeTask).toHaveBeenCalled();
+    });
+
+    it('in case of rejected promise should invoke $scope.errorMessOpen() function with certain parameters', function () {
+      var status = '404';
+      var message = 'item was not found';
+
+      inject(function($q) {
+        tasksRemoteDataService.removeTask = function() {
+          var prom = $q.defer();
+          var reasonObj = {
+            status: '404',
+            statusText: 'item was not found'
+          };
+          prom.reject(reasonObj);
+          return prom.promise;
+        };
+      });
+
+      spyOn(scope, 'errorMessOpen');
+      scope.taskItemsToDel = [3232, 43242, 342242];
+      scope.removeTasks();
+      scope.$apply();
+
+      expect(scope.errorMessOpen).toHaveBeenCalledWith(status, message);
     });
 
     describe('$scope.taskItemsToDel array: ', function() {
@@ -400,6 +474,29 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
       expect(oldFavValue).not.toEqual(newFavValue);
     });
 
+    it('in case of rejected promise should invoke $scope.errorMessOpen() function with certain parameters', function () {
+      var status = '404';
+      var message = 'item was not found';
+
+      inject(function($q) {
+        tasksRemoteDataService.updateTask = function() {
+          var prom = $q.defer();
+          var reasonObj = {
+            status: '404',
+            statusText: 'item was not found'
+          };
+          prom.reject(reasonObj);
+          return prom.promise;
+        };
+      });
+
+      spyOn(scope, 'errorMessOpen');
+      // scope.taskItemsToDel = [3232, 43242, 342242];
+      scope.changeFavorite(middleElemId);
+      scope.$apply();
+
+      expect(scope.errorMessOpen).toHaveBeenCalledWith(status, message);
+    });
   });
 
   describe('$scope.randomColor() function execution: ', function() {
@@ -559,6 +656,38 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
       spyOn(uibModal, 'open');
       scope.open();
       expect(uibModal.open).toHaveBeenCalledWith(scope.modWindParamsObj);
+    });
+  });
+
+  describe('data server response error handling', function () {
+    it('variables $scope.code, $scope.status, $scope.errorVisibility and functions $scope.errorMessClose(), $scope.errorMessOpen() should be defined', function () {
+      expect(scope.code).toBeDefined();
+      expect(scope.status).toBeDefined();
+      expect(scope.errorVisibility).toBeDefined();
+      expect(scope.errorMessClose).toBeDefined();
+      expect(scope.errorMessOpen).toBeDefined();
+    });
+
+    it('$scope.errorMessClose() function should change variables to opposite value', function () {
+      scope.code = '404';
+      scope.status = 'No such item on server';
+      scope.errorVisibility = true;
+
+      scope.errorMessClose();
+
+      expect(scope.code).toEqual('');
+      expect(scope.status).toEqual('');
+      expect(scope.errorVisibility).toBeFalsy();
+    });
+
+    it('$scope.errorMessOpen() function should change variables needed for error handling to truthy values', function () {
+      var expCode = '404';
+      var expStatus = 'Item not found';
+
+      scope.errorMessOpen(expCode, expStatus);
+      expect(scope.code).toEqual('404');
+      expect(scope.status).toEqual('Item not found');
+      expect(scope.errorVisibility).toBeTruthy();
     });
   });
 });

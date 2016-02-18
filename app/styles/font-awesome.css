@@ -52,6 +52,10 @@
   content: "";
 }
 
+.fa-times-circle:before {
+  content: "";
+}
+
 .fa-ban:before {
   content: "";
 }
