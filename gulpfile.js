@@ -81,7 +81,7 @@ gulp.task('karma:inject', function() {
 //config for karma testing
 gulp.task('test:karma', ['karma:inject'], function (done) {
   new Server({
-    configFile: __dirname + '\\test\\karma.conf.js',
+    configFile: __dirname + '\\unit-tests\\karma.conf.js',
     singleRun: true
   }, function() {done();}).start();
 });

@@ -192,7 +192,7 @@ angular.module('angularDashboardApp')
     };
 //---------------------------------------------------------------
 //---------------------------------------------------------------
-    //functions and variable for error handling in case of failed responses from the server
+    //functions and variables for error handling in case of failed responses from the server
     $scope.code = '404';
     $scope.status = 'No such item on server';
     $scope.errorVisibility = false;

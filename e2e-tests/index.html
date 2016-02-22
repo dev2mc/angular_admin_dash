@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Angular Admin Dashboard</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Lazakovich Valery">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+  <!-- build:css styles/vendor.min.css -->
+
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bxslider-4/dist/jquery.bxslider.css" />
+  <!-- endbower -->
+  <!-- inject:vendor:css -->
+  <link rel="stylesheet" href="styles/bootstrap.css">
+  <link rel="stylesheet" href="styles/font-awesome.css">
+  <!-- endinject -->
+  <!-- endbuild -->
+  <!-- build:css styles/main.min.css -->
+  <!-- inject:custom:css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endinject -->
+  <!-- endbuild -->
+</head>
+<body ng-app="angularDashboardApp">
+  <!-- top bar block -->
+  <div class="top-bar">
+    <div class="app-container">
+      <div class="top-bar__container">
+        <h1 class="top-bar__heading">
+          <a href="#" class="top-bar__page-link">Dash<span class="top-bar__page-link_font_bold">Board</span></a>
+        </h1>
+        <div class="tools">
+          <div class="tools__container">
+            <form class="tools__search">
+              <input type="text" class="tools__search__input">
+              <button class="tools__search__submit"><i class="fa fa-search tools__search__icon"></i></button>
+            </form>
+            <div class="tools__notifications">
+              <i class="fa fa-bell tools__notifications__icon"></i>
+              <i class="tools__counter">4</i>
+            </div>
+            <div class="tools__notifications">
+              <i class="fa fa-envelope tools__notifications__icon tools__notifications__icon_font_sm"></i>
+              <i class="tools__counter tools__counter_bg_alt">1</i>
+            </div>
+          </div>
+        </div>
+        <div class="user-menu">
+          <div class="user-menu__container">
+            <img class="user-menu__avatar" src="images/user_avatars/user0001-avatar.png" alt="user0001-avatar">
+            <span class="user-menu__name">Hi, <span class="user-menu__name_font_thinner">Robert</span></span>
+            <i class="fa fa-chevron-down user-menu__drop-icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-container main-container">
+    <!-- side-bar block  -->
+    <aside class="side-bar">
+      <div class="side-bar__container">
+        <ul class="side-bar__menu">
+
+          <li class="side-bar__item">
+            <a href="#" class="side-bar__link">
+              <i class="fa fa-tachometer side-bar__link__icon"></i>
+              <span class="side-bar__link__text">Dashboard</span>
+              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
+            </a>
+          </li>
+
+          <li class="side-bar__item">
+            <a href="#" class="side-bar__link">
+              <i class="fa fa-bar-chart side-bar__link__icon"></i>
+              <span class="side-bar__link__text">Chart</span>
+              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
+            </a>
+          </li>
+
+          <li class="side-bar__item">
+            <a href="#" class="side-bar__link">
+              <i class="fa fa-line-chart side-bar__link__icon"></i>
+              <span class="side-bar__link__text">Tasks</span>
+              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
+            </a>
+          </li>
+
+          <li class="side-bar__item">
+            <a href="#" class="side-bar__link">
+              <i class="fa fa-comment side-bar__link__icon"></i>
+              <span class="side-bar__link__text">Comments</span>
+              <span class="side-bar__link__counter">9</span>
+              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
+            </a>
+          </li>
+
+          <li class="side-bar__item">
+            <a href="#" class="side-bar__link">
+              <i class="fa fa-cog side-bar__link__icon"></i>
+              <span class="side-bar__link__text">Settings</span>
+              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
+            </a>
+          </li>
+
+          <li class="side-bar__item">
+            <a href="#" class="side-bar__link">
+              <i class="fa fa-star side-bar__link__icon"></i>
+              <span class="side-bar__link__text">Feedback</span>
+              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
+            </a>
+          </li>
+
+          <li class="side-bar__item">
+            <a href="#" class="side-bar__link">
+              <i class="fa fa-link side-bar__link__icon"></i>
+              <span class="side-bar__link__text">Links</span>
+              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
+            </a>
+          </li>
+
+          <li class="side-bar__item">
+            <a href="#" class="side-bar__link">
+              <i class="fa fa-share-alt side-bar__link__icon"></i>
+              <span class="side-bar__link__text">Social</span>
+              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
+            </a>
+          </li>
+
+          <li class="side-bar__item">
+            <a href="#" class="side-bar__link">
+              <i class="fa fa-envelope side-bar__link__icon"></i>
+              <span class="side-bar__link__text">Mail</span>
+              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
+            </a>
+          </li>
+
+          <li class="side-bar__item">
+            <a href="#" class="side-bar__link">
+              <i class="fa fa-trophy side-bar__link__icon"></i>
+              <span class="side-bar__link__text">Achievements</span>
+              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
+            </a>
+          </li>
+
+          <li class="side-bar__item">
+            <a href="#" class="side-bar__link">
+              <i class="fa fa-power-off side-bar__link__icon"></i>
+              <span class="side-bar__link__text">Logout</span>
+              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
+            </a>
+          </li>
+
+        </ul>
+        <span class="side-bar__collapse">
+          <i class="fa fa-play-circle side-bar__collapse__icon"></i>
+          <span class="side-bar__collapse__text">Collapse Menu</span>
+        </span>
+      </div>
+    </aside>
+
+    <!-- tasks block -->
+    <main class="tasks" ng-controller='tasksComponentCtrl' ng-class="{'tasks_show_del-controls': delTasksItemsVisible}">
+      <div class="tasks__container">
+        <div class="tasks__top-bar">
+          <h4 class="tasks__heading">Tasks</h4>
+          <ul class="tasks__options">
+            <li class="tasks__option" ng-click="open()"><span class="tasks__option__icon  tasks__option__icon_ttip_add">+</span></li>
+            <li class="tasks__option" ng-click='toggleDelTasksVisible()'><span class="tasks__option__icon tasks__option__icon_ttip_del">&times</span></li>
+          </ul>
+        </div>
+        <div class="tasks__deletion-panel">
+          <span class="tasks__deletion-panel__button tasks__deletion-panel__button_bg_delete" ng-click='removeTasks();toggleDelTasksVisible()'>
+            <i class="fa fa-trash tasks__deletion-panel__icon"></i>
+            Delete
+          </span>
+          <span class="tasks__deletion-panel__button tasks__deletion-panel__button_bg_cancel" ng-click='toggleDelTasksVisible()'>
+            <i class="fa fa-ban tasks__deletion-panel__icon"></i>
+            Cancel
+          </span>
+        </div>
+        <div class="tasks__tags">
+          <ul class="tasks__tags__list">
+            <li class="tasks__tags__item" ng-click='assignTag($index);checkActiveTag($index)' ng-repeat='tag in tasksTags' ng-class='{"tasks__tags__item_is_active": tagsArrTest[$index]}'>{{tag}}</li>
+          </ul>
+        </div>
+        <div class="tasks__items">
+          <div class="tasks__item tasks__item_bg_{{objOfColors[task._id]}}" ng-repeat='task in tasksItems | tasksComponentItemsFilter:filteredTag'>
+            <h3 class="tasks__item__heading">{{task.name}}</h3>
+            <p class="tasks__item__tag">{{task.tag}}</p>
+            <p class="tasks__item__desc">{{task.description}}</p>
+            <i class="fa fa-star tasks__item__icon-favorite" ng-class="{'tasks__item__icon-favorite_is_checked': task.favorite}" ng-click='changeFavorite(task._id)'></i>
+            <div class="tasks__item__delete-check">
+              <input class="tasks__item__checkbox" type="checkbox"  id="check_{{task._id}}">
+              <label class="tasks__item__label" for="check_{{task._id}}" ng-click='addTasksToDel(task._id)'></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tasks__error-wrapper" ng-show='errorVisibility'>
+        <error-task code='code' status='status' close='errorMessClose()'></error-task>
+      </div>
+    </main>
+  </div>
+
+
+  <!-- build:js scripts/vendor.min.js -->
+  <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/bxslider-4/dist/jquery.bxslider.js"></script>
+  <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+  <script src="bower_components/angular-ui-sortable/sortable.js"></script>
+  <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:js scripts/app.min.js -->
+  <!-- inject:angularcustom:js -->
+  <script src="app.js"></script>
+  <script src="components/tasksComponent/newTaskModalInstanceWindCtrl.js"></script>
+  <script src="components/tasksComponent/tasksComponentCtrl.js"></script>
+  <script src="components/tasksComponent/tasksComponentErrMesDirective.js"></script>
+  <script src="components/tasksComponent/tasksComponentItemsFilter.js"></script>
+  <script src="components/tasksComponent/tasksRemoteDataService.js"></script>
+  <!-- endinject -->
+  <!-- endbuild -->
+</body>
+</html>
