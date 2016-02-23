@@ -377,7 +377,7 @@ describe('tasksComponent: controller: tasksComponentCtrl - ', function() {
     it('tasksRemoteDataService.removeTask() function should not be called if $scope.taskItemsToDel array is empty', function() {
       spyOn(tasksRemoteDataService, 'removeTask');
       scope.taskItemsToDel = [];
-      scope.removeTasks();
+      scope.removeTasks(); 
       scope.$apply();
       expect(tasksRemoteDataService.removeTask).not.toHaveBeenCalled();
     });
