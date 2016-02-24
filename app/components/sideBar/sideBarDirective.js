@@ -4,7 +4,7 @@ angular.module('angularDashboardApp')
     return {
       restrict: 'EA',
       scope: {
-        linksData = []
-      }
-    }
+      },
+      templateUrl: '../components/sideBar/sideBarTemplate.html'
+    };
   });

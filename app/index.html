@@ -59,150 +59,9 @@
   </div>
 
   <div class="app-container main-container">
-    <!-- side-bar block  -->
-    <aside class="side-bar">
-      <div class="side-bar__container">
-        <ul class="side-bar__menu">
-
-          <li class="side-bar__item">
-            <a href="#" class="side-bar__link">
-              <i class="fa fa-tachometer side-bar__link__icon"></i>
-              <span class="side-bar__link__text">Dashboard</span>
-              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
-            </a>
-          </li>
-
-          <li class="side-bar__item">
-            <a href="#" class="side-bar__link">
-              <i class="fa fa-bar-chart side-bar__link__icon"></i>
-              <span class="side-bar__link__text">Chart</span>
-              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
-            </a>
-          </li>
-
-          <li class="side-bar__item">
-            <a href="#" class="side-bar__link">
-              <i class="fa fa-line-chart side-bar__link__icon"></i>
-              <span class="side-bar__link__text">Tasks</span>
-              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
-            </a>
-          </li>
-
-          <li class="side-bar__item">
-            <a href="#" class="side-bar__link">
-              <i class="fa fa-comment side-bar__link__icon"></i>
-              <span class="side-bar__link__text">Comments</span>
-              <span class="side-bar__link__counter">9</span>
-              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
-            </a>
-          </li>
-
-          <li class="side-bar__item">
-            <a href="#" class="side-bar__link">
-              <i class="fa fa-cog side-bar__link__icon"></i>
-              <span class="side-bar__link__text">Settings</span>
-              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
-            </a>
-          </li>
-
-          <li class="side-bar__item">
-            <a href="#" class="side-bar__link">
-              <i class="fa fa-star side-bar__link__icon"></i>
-              <span class="side-bar__link__text">Feedback</span>
-              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
-            </a>
-          </li>
-
-          <li class="side-bar__item">
-            <a href="#" class="side-bar__link">
-              <i class="fa fa-link side-bar__link__icon"></i>
-              <span class="side-bar__link__text">Links</span>
-              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
-            </a>
-          </li>
-
-          <li class="side-bar__item">
-            <a href="#" class="side-bar__link">
-              <i class="fa fa-share-alt side-bar__link__icon"></i>
-              <span class="side-bar__link__text">Social</span>
-              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
-            </a>
-          </li>
-
-          <li class="side-bar__item">
-            <a href="#" class="side-bar__link">
-              <i class="fa fa-envelope side-bar__link__icon"></i>
-              <span class="side-bar__link__text">Mail</span>
-              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
-            </a>
-          </li>
-
-          <li class="side-bar__item">
-            <a href="#" class="side-bar__link">
-              <i class="fa fa-trophy side-bar__link__icon"></i>
-              <span class="side-bar__link__text">Achievements</span>
-              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
-            </a>
-          </li>
-
-          <li class="side-bar__item">
-            <a href="#" class="side-bar__link">
-              <i class="fa fa-power-off side-bar__link__icon"></i>
-              <span class="side-bar__link__text">Logout</span>
-              <i class="fa fa-chevron-right side-bar__link__icon side-bar__link__icon_format_go"></i>
-            </a>
-          </li>
-
-        </ul>
-        <span class="side-bar__collapse">
-          <i class="fa fa-play-circle side-bar__collapse__icon"></i>
-          <span class="side-bar__collapse__text">Collapse Menu</span>
-        </span>
-      </div>
-    </aside>
-
+    <side-bar></side-bar>
     <!-- tasks block -->
-    <main class="tasks" ng-controller='tasksComponentCtrl' ng-class="{'tasks_show_del-controls': delTasksItemsVisible}">
-      <div class="tasks__container">
-        <div class="tasks__top-bar">
-          <h4 class="tasks__heading">Tasks</h4>
-          <ul class="tasks__options">
-            <li class="tasks__option" ng-click="open()"><span class="tasks__option__icon  tasks__option__icon_ttip_add">+</span></li>
-            <li class="tasks__option" ng-click='toggleDelTasksVisible()'><span class="tasks__option__icon tasks__option__icon_ttip_del">&times</span></li>
-          </ul>
-        </div>
-        <div class="tasks__deletion-panel">
-          <span class="tasks__deletion-panel__button tasks__deletion-panel__button_bg_delete" ng-click='removeTasks();toggleDelTasksVisible()'>
-            <i class="fa fa-trash tasks__deletion-panel__icon"></i>
-            Delete
-          </span>
-          <span class="tasks__deletion-panel__button tasks__deletion-panel__button_bg_cancel" ng-click='toggleDelTasksVisible()'>
-            <i class="fa fa-ban tasks__deletion-panel__icon"></i>
-            Cancel
-          </span>
-        </div>
-        <div class="tasks__tags">
-          <ul class="tasks__tags__list">
-            <li class="tasks__tags__item" ng-click='assignTag($index);checkActiveTag($index)' ng-repeat='tag in tasksTags' ng-class='{"tasks__tags__item_is_active": tagsArrTest[$index]}'>{{tag}}</li>
-          </ul>
-        </div>
-        <div class="tasks__items">
-          <div class="tasks__item tasks__item_bg_{{objOfColors[task._id]}}" ng-repeat='task in tasksItems | tasksComponentItemsFilter:filteredTag'>
-            <h3 class="tasks__item__heading">{{task.name}}</h3>
-            <p class="tasks__item__tag">{{task.tag}}</p>
-            <p class="tasks__item__desc">{{task.description}}</p>
-            <i class="fa fa-star tasks__item__icon-favorite" ng-class="{'tasks__item__icon-favorite_is_checked': task.favorite}" ng-click='changeFavorite(task._id)'></i>
-            <div class="tasks__item__delete-check">
-              <input class="tasks__item__checkbox" type="checkbox"  id="check_{{task._id}}">
-              <label class="tasks__item__label" for="check_{{task._id}}" ng-click='addTasksToDel(task._id)'></label>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="tasks__error-wrapper" ng-show='errorVisibility'>
-        <error-task code='code' status='status' close='errorMessClose()'></error-task>
-      </div>
-    </main>
+    <div ng-view></div>
   </div>
 
 
@@ -227,6 +86,7 @@
   <!-- build:js scripts/app.min.js -->
   <!-- inject:angularcustom:js -->
   <script src="app.js"></script>
+  <script src="components/sideBar/sideBarDirective.js"></script>
   <script src="components/tasksComponent/newTaskModalInstanceWindCtrl.js"></script>
   <script src="components/tasksComponent/tasksComponentCtrl.js"></script>
   <script src="components/tasksComponent/tasksComponentErrMesDirective.js"></script>
