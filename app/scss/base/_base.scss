@@ -18,3 +18,7 @@ body {
 .main-container {
   display: flex;
 }
+
+.views-container {
+  flex-grow: 1;
+}

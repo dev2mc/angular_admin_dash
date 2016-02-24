@@ -60,10 +60,8 @@
 
   <div class="app-container main-container">
     <side-bar></side-bar>
-    <!-- tasks block -->
-    <div ng-view></div>
+    <main ng-view class='views-container'></main>
   </div>
-
 
   <!-- build:js scripts/vendor.min.js -->
   <!-- bower:js -->
@@ -86,12 +84,12 @@
   <!-- build:js scripts/app.min.js -->
   <!-- inject:angularcustom:js -->
   <script src="app.js"></script>
-  <script src="components/sideBar/sideBarDirective.js"></script>
   <script src="components/tasksComponent/newTaskModalInstanceWindCtrl.js"></script>
   <script src="components/tasksComponent/tasksComponentCtrl.js"></script>
   <script src="components/tasksComponent/tasksComponentErrMesDirective.js"></script>
   <script src="components/tasksComponent/tasksComponentItemsFilter.js"></script>
   <script src="components/tasksComponent/tasksRemoteDataService.js"></script>
+  <script src="components/sideBar/sideBarDirective.js"></script>
   <!-- endinject -->
   <!-- endbuild -->
 </body>

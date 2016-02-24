@@ -1,0 +1,77 @@
+//styles for 404 view
+.fourOhFour {
+  width: 100%;
+  padding: 270px 0 320px;
+
+  background: color(wild-sand);
+
+  @media screen and (max-width: 950px) {
+    padding: 50px 0 50px;
+  }
+}
+
+$fof-image-width: 587px;
+$fof-image-height: 262px;
+
+$fof-image-width-sm: 300px;
+$fof-image-height-sm: 134px;
+
+.fourOhFour__image {
+  width: #{$fof-image-width};
+  height: #{$fof-image-height};
+  margin: 0 auto;
+  margin-bottom: 65px;
+
+  background-image: url('../images/four_oh_four/404.png');
+  background-image: url('../images/four_oh_four/404.svg');
+  background-size: #{$fof-image-width} #{$fof-image-height};
+
+  @media screen and (max-width: 700px) {
+    width: #{$fof-image-width-sm};
+    height: #{$fof-image-height-sm};
+
+    background-size: #{$fof-image-width-sm} #{$fof-image-height-sm};
+  }
+}
+
+.fourOhFour__message {
+  max-width: 722px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  padding: 0;
+
+  color: color(ebony-clay);
+  font-family: 'HelveticaNeueLTStd Bold';
+  font-size: 60px;
+  line-height: 1.2;
+  text-align: center;
+
+  @media screen and (max-width: 700px) {
+    font-size: 30px;
+  }
+}
+
+.fourOhFour__advice {
+  max-width: 460px;
+  margin: 0 auto;
+  padding: 0;
+
+  color: color(ebony-clay);
+  font-family: 'HelveticaNeueLTStd Bold';
+  font-size: 30px;
+  line-height: 1.2;
+  text-align: center;
+
+  @media screen and (max-width: 700px) {
+    font-size: 25px;
+  }
+}
+
+.fourOhFour__link {
+  color: color(alizarin-crimson);
+
+  &:hover,
+  &:focus {
+    color: color(alizarin-crimson);
+  }
+}
