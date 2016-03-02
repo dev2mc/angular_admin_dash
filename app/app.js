@@ -18,14 +18,14 @@ angular
       //   controller: 'tasksComponentCtrl'
       // })
       .when('/', {
-        templateUrl: 'components/fourOhFourComponent/fourOhFour.html'
+        templateUrl: '../components/fourOhFourComponent/fourOhFour.html'
       })
       .when('/tasks', {
-        templateUrl: 'components/tasksComponent/tasksComponent.html',
+        templateUrl: '../components/tasksComponent/tasksComponent.html',
         controller: 'tasksComponentCtrl'
       })
       .when('/404', {
-        templateUrl: 'components/fourOhFourComponent/fourOhFour.html'
+        templateUrl: '../components/fourOhFourComponent/fourOhFour.html'
       })
       // .when('/about', {
       //   templateUrl: 'components/aboutComponent/aboutComponent.html',

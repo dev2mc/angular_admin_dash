@@ -1,0 +1,52 @@
+$dash-cart-stats-broder-rad: 6px;
+
+.dashboard__chart-stats {
+  // width: 617px;
+  width: 100%;
+  height: 391px;
+  margin: 0 auto;
+
+  border-radius: $dash-cart-stats-broder-rad;
+
+  background: color(whitecol);
+}
+
+.dashboard__chart-stats__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  padding: 0 26px 0 12px;
+
+  border-top-left-radius: $dash-cart-stats-broder-rad;
+  border-top-right-radius: $dash-cart-stats-broder-rad;
+
+  background: color(alabaster);
+}
+
+.dashboard__chart-stats__heading {
+  margin: 0;
+  padding: 0;
+
+  color: color(silver-chalice);
+  font-family: 'HelveticaNeueLTStd Light';
+  font-size: 19px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+@keyframes chart-set-spin {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
+.dashboard__chart-stats__settings {
+  color: color(silver-chalice);
+  font-size: 22px;
+
+  cursor: pointer;
+
+  &:hover {
+    animation: chart-set-spin 1s linear infinite;
+  }
+}

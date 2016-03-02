@@ -60,7 +60,265 @@
 
   <div class="app-container main-container">
     <side-bar></side-bar>
-    <main ng-view class='views-container'></main>
+    <!-- <main ng-view class='views-container'></main> -->
+    <main class="views-container">
+      <div class="dashboard">
+        <div class="dashboard-container">
+          <div class="dashboard__panel dashboard__panel_location_top">
+            <div class="dashboard__updates">
+              <div class="dashboard__updates__outer-circle">
+                <div class="dashboard__updates__decoration-cirle dashboard__updates__decoration-cirle_bg_twitter"></div>
+                <div class="dashboard__updates__inner-circle dashboard__updates__inner-circle_bg_twitter">
+                  <i class="fa fa-twitter dashboard__updates__icon dashboard__updates__icon_form_twitter"></i>
+                </div>
+              </div>
+              <div class="dashboard__updates__info-container">
+                <p class="dashboard__updates__info-number">400</p>
+                <p class="dashboard__updates__info-description">mentioned</p>
+              </div>
+            </div>
+            <div class="dashboard__updates">
+              <div class="dashboard__updates__outer-circle">
+                <div class="dashboard__updates__decoration-cirle dashboard__updates__decoration-cirle_bg_sales"></div>
+                <div class="dashboard__updates__inner-circle dashboard__updates__inner-circle_bg_sales">
+                  <i class="fa fa-usd dashboard__updates__icon dashboard__updates__icon_form_sales"></i>
+                </div>
+              </div>
+              <div class="dashboard__updates__info-container">
+                <p class="dashboard__updates__info-number">13140 $</p>
+                <p class="dashboard__updates__info-description">today sales</p>
+              </div>
+            </div>
+            <div class="dashboard__updates">
+              <div class="dashboard__updates__outer-circle">
+                <div class="dashboard__updates__decoration-cirle dashboard__updates__decoration-cirle_bg_visitors"></div>
+                <div class="dashboard__updates__inner-circle dashboard__updates__inner-circle_bg_visitors">
+                  <i class="fa fa-user dashboard__updates__icon dashboard__updates__icon_form_visitors"></i>
+                </div>
+              </div>
+              <div class="dashboard__updates__info-container">
+                <p class="dashboard__updates__info-number">9001</p>
+                <p class="dashboard__updates__info-description">today visitors</p>
+              </div>
+            </div>
+            <div class="dashboard__updates">
+              <div class="dashboard__updates__outer-circle">
+                <div class="dashboard__updates__decoration-cirle dashboard__updates__decoration-cirle_bg_messages"></div>
+                <div class="dashboard__updates__inner-circle dashboard__updates__inner-circle_bg_messages">
+                  <i class="fa fa-envelope dashboard__updates__icon dashboard__updates__icon_form_messages"></i>
+                </div>
+              </div>
+              <div class="dashboard__updates__info-container">
+                <p class="dashboard__updates__info-number">350</p>
+                <p class="dashboard__updates__info-description">new messages</p>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard__panel dashboard__panel_location_left">
+            <div class="dashboard__item-wrapper">
+              <div class="dashboard__chart-stats">
+                <div class="dashboard__chart-stats__header">
+                  <h3 class="dashboard__chart-stats__heading">site statistic</h3>
+                  <i class="fa fa-cog dashboard__chart-stats__settings"></i>
+                </div>
+              </div>
+            </div>
+            <div class="dashboard__item-wrapper">
+              <div class="dashboard__todo">
+                <div class="dashboard__todo__header">
+                  <h3 class="dashboard__todo__heading">ToDo List</h3>
+                  <p class="dashboard__todo__add-new">&#43;</p>
+                </div>
+                <div class="dashboard__todo__container">
+                  <div class="dashboard__todo__item">
+                    <p class="dashboard__todo__info">
+                      <i class="dashboard__todo__move-icon"></i>
+                      Do your ToDo List today at 6AM GMT
+                    </p>
+                    <div class="dashboard__todo__controlls">
+                      <i class="fa fa-check dashboard__todo__action dashboard__todo__done"></i>
+                      <i class="dashboard__todo__action dashboard__todo__delete">&times</i>
+                    </div>
+                  </div>
+                  <div class="dashboard__todo__item">
+                    <p class="dashboard__todo__info">
+                      <i class="dashboard__todo__move-icon"></i>
+                      Do your ToDo List today at 6AM GMT
+                    </p>
+                    <div class="dashboard__todo__controlls">
+                      <i class="fa fa-check dashboard__todo__action dashboard__todo__done"></i>
+                      <i class="dashboard__todo__action dashboard__todo__delete">&times</i>
+                    </div>
+                  </div>
+                  <div class="dashboard__todo__item">
+                    <p class="dashboard__todo__info">
+                      <i class="dashboard__todo__move-icon"></i>
+                      Do your ToDo List today at 6AM GMT
+                    </p>
+                    <div class="dashboard__todo__controlls">
+                      <i class="fa fa-check dashboard__todo__action dashboard__todo__done"></i>
+                      <i class="dashboard__todo__action dashboard__todo__delete">&times</i>
+                    </div>
+                  </div>
+                  <div class="dashboard__todo__item">
+                    <p class="dashboard__todo__info">
+                      <i class="dashboard__todo__move-icon"></i>
+                      Do your ToDo List today at 6AM GMT
+                    </p>
+                    <div class="dashboard__todo__controlls">
+                      <i class="fa fa-check dashboard__todo__action dashboard__todo__done"></i>
+                      <i class="dashboard__todo__action dashboard__todo__delete">&times</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dashboard__email-space-wrapper">
+              <div class="dashboard__email-space">
+                <p class="dashboard__email-space__data">113/200 GB</p>
+                <p class="dashboard__email-space__description">From your hosting usage</p>
+                <div class="dashboard__email-space__line">
+                  <div class="dashboard__email-space__line-shadow" style="width:56%;"></div>
+                </div>
+              </div>
+              <div class="dashboard__email-space">
+                <p class="dashboard__email-space__data dashboard__email-space__data_col_alt">535/986 GB</p>
+                <p class="dashboard__email-space__description">Emails read</p>
+                <div class="dashboard__email-space__line">
+                  <div class="dashboard__email-space__line-shadow dashboard__email-space__line-shadow_col_alt" style="width:54%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="dashboard__item-wrapper">
+              <div class="dashboard__notifications">
+                <div class="dashboard__notifications__header">
+                  <h3 class="dashboard__notifications__heading">notifications</h3>
+                  <i class="fa fa-cog dashboard__notifications__settings"></i>
+                </div>
+                <div class="dashboard__notifications__container">
+                  <div class="dashboard__notifications__item">
+                    <a href="#" class="dashboard__notifications__link">
+                      <div class="dashboard__notifications__item-wrapper">
+                        <div class="dashboard__notifications__outer-circle">
+                          <div class="dashboard__notifications__inner-circle dashboard__notifications__inner-circle_bg_twitter">
+                            <i class="fa fa-twitter dashboard__notifications__icon dashboard__notifications__icon_form_twitter"></i>
+                          </div>
+                        </div>
+                        <div class="dashboard__notifications__info-container dashboard__notifications__info-container_bg_twitter">
+                          <p class="dashboard__notifications__info">There are 5 new twitter messages are waiting you for reply them!</p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="dashboard__notifications__item">
+                    <a href="#" class="dashboard__notifications__link">
+                      <div class="dashboard__notifications__item-wrapper">
+                        <div class="dashboard__notifications__outer-circle">
+                          <div class="dashboard__notifications__inner-circle dashboard__notifications__inner-circle_bg_mail">
+                            <i class="fa fa-envelope dashboard__notifications__icon dashboard__notifications__icon_form_mail"></i>
+                          </div>
+                        </div>
+                        <div class="dashboard__notifications__info-container dashboard__notifications__info-container_bg_mail">
+                          <p class="dashboard__notifications__info">There are 5 new email messages are waiting you for reply them!</p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="dashboard__notifications__item">
+                    <a href="#" class="dashboard__notifications__link">
+                      <div class="dashboard__notifications__item-wrapper">
+                        <div class="dashboard__notifications__outer-circle">
+                          <div class="dashboard__notifications__inner-circle dashboard__notifications__inner-circle_bg_money">
+                            <i class="fa fa-usd dashboard__notifications__icon dashboard__notifications__icon_form_money"></i>
+                          </div>
+                        </div>
+                        <div class="dashboard__notifications__info-container dashboard__notifications__info-container_bg_money">
+                          <p class="dashboard__notifications__info">Honey, someone sent you money!</p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard__panel dashboard__panel_location_right">
+            <div class="dashboard__item-wrapper">
+              <div class="dashboard__sales">
+                <div class="dashboard__sales__graph-wrapper"></div>
+                <div class="dashboard__sales__data-container">
+                  <div class="dashboard__sales__data-item">
+                    <p class="dashboard__sales__number dashboard__sales__number_col_sales">536,030 $</p>
+                    <p class="dashboard__sales__description">yearly sales</p>
+                    <div class="dashboard__sales__line">
+                      <div class="dashboard__sales__line_mod_shadow dashboard__sales__line_mod_shadow_col_sales" style="width:62%"></div>
+                    </div>
+                  </div>
+                  <div class="dashboard__sales__data-item">
+                    <p class="dashboard__sales__number dashboard__sales__number_col_visitors">4204284</p>
+                    <p class="dashboard__sales__description">yearly visitors</p>
+                    <div class="dashboard__sales__line">
+                      <div class="dashboard__sales__line_mod_shadow dashboard__sales__line_mod_shadow_col_visitors" style="width:50%"></div>
+                    </div>
+                  </div>
+                  <div class="dashboard__sales__data-item">
+                    <p class="dashboard__sales__number dashboard__sales__number_col_customers">42000</p>
+                    <p class="dashboard__sales__description">yearly customers</p>
+                    <div class="dashboard__sales__line">
+                      <div class="dashboard__sales__line_mod_shadow dashboard__sales__line_mod_shadow_col_customers" style="width:83%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dashboard__item-wrapper">
+              <div class="dashboard__weather">
+                <i class="fa fa-sun-o dashboard__weather__icon dashboard__weather__icon_form_sunny"></i>
+                <p class="dashboard__weather__temperature">15&#176;</p>
+                <div class="dashboard__weather__sity">
+                  <p class="dashboard__weather__name">Texas</p>
+                  <p class="dashboard__weather__mood">Sunny</p>
+                  <i class="fa fa-map-marker dashboard__weather__location-icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="dashboard__item-wrapper">
+              <div class="dashboard__calendar"><h1>calendar</h1></div>
+            </div>
+            <!-- current -->
+            <!-- current -->
+            <!-- current -->
+            <div class="dashboard__item-wrapper">
+              <div class="dashboard__data-graph">
+                <div class="dashboard__data-graph__header">
+                  <h3 class="dashboard__data-graph__heading">Data graph</h3>
+                  <i class="fa fa-cog dashboard__data-graph__settings"></i>
+                </div>
+                <div class="dashboard__data-graph__container">
+                  <div class="dashboard__data-graph__data">
+                    <p class="dashboard__data-graph__stats">$540 (0.4%)</p>
+                    <p class="dashboard__data-graph__date">Today</p>
+                  </div>
+                  <div class="dashboard__data-graph__image-container">
+                    <img class="dashboard__data-graph__image" src="images/graphs/dashboard__data-graph.png" alt="graph image">
+                  </div>
+                </div>
+                <div class="dashboard__data-graph__footer">
+                  <div class="dashboard__data-graph__stats-total">
+                    <p class="dashboard__data-graph__total">433,22$</p>
+                    <p class="dashboard__data-graph__total-description">Total yearned</p>
+                  </div>
+                  <div class="dashboard__data-graph__decoration"></div>
+                </div>
+              </div>
+            </div>
+            <!-- current -->
+            <!-- current -->
+            <!-- current -->
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
 
   <!-- build:js scripts/vendor.min.js -->
@@ -84,12 +342,12 @@
   <!-- build:js scripts/app.min.js -->
   <!-- inject:angularcustom:js -->
   <script src="app.js"></script>
+  <script src="components/sideBar/sideBarDirective.js"></script>
   <script src="components/tasksComponent/newTaskModalInstanceWindCtrl.js"></script>
   <script src="components/tasksComponent/tasksComponentCtrl.js"></script>
   <script src="components/tasksComponent/tasksComponentErrMesDirective.js"></script>
   <script src="components/tasksComponent/tasksComponentItemsFilter.js"></script>
   <script src="components/tasksComponent/tasksRemoteDataService.js"></script>
-  <script src="components/sideBar/sideBarDirective.js"></script>
   <!-- endinject -->
   <!-- endbuild -->
 </body>

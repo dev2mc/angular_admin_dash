@@ -1,0 +1,133 @@
+.dashboard__updates {
+  display: flex;
+  align-items: center;
+  width: 224px;
+  height: 110px;
+  padding: 0 13px;
+
+  border-radius: 7px;
+
+  background: color(whitecol);
+}
+
+.dashboard__updates__info-number {
+  margin: 0;
+  padding: 0;
+
+  color: color(charade);
+  font-family: 'HelveticaNeueLTStd Bold';
+  font-size: 24px;
+  text-transform: lowercase;
+}
+
+.dashboard__updates__info-description {
+  margin: 0;
+  padding: 0;
+
+  color: color(dusty-gray);
+  font-family: 'HelveticaNeueLTStd Roman';
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.dashboard__updates__outer-circle {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  margin-right: 14px;
+
+  border-radius: 50%;
+
+  background: color(wild-sand);
+
+  overflow: hidden;
+}
+
+.dashboard__updates__decoration-cirle {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin: -67px 0 0 -5px;
+
+  transform: rotate(-38deg);
+
+  border-width: 69px 57px 74px 0;
+  border-style: solid;
+  border-color: transparent color(whitecol) transparent transparent;
+
+  opacity: .25;
+}
+
+.dashboard__updates__decoration-cirle_bg_twitter {
+  border-color: transparent color(cornflower-blue) transparent transparent;
+}
+
+.dashboard__updates__decoration-cirle_bg_sales {
+  border-color: transparent color(celery) transparent transparent;
+}
+
+.dashboard__updates__decoration-cirle_bg_visitors {
+  border-color: transparent color(sunset-orange) transparent transparent;
+}
+
+.dashboard__updates__decoration-cirle_bg_messages {
+  border-color: transparent color(casablanca) transparent transparent;
+}
+
+.dashboard__updates__inner-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 58px;
+  height: 58px;
+  margin: -29px 0 0 -29px;
+
+  border-radius: 50%;
+
+  background: color(whitecol);
+}
+
+.dashboard__updates__inner-circle_bg_twitter {
+  background: color(cornflower-blue);
+}
+
+.dashboard__updates__inner-circle_bg_sales {
+  background: color(celery);
+}
+
+.dashboard__updates__inner-circle_bg_visitors {
+  background: color(sunset-orange);
+}
+
+.dashboard__updates__inner-circle_bg_messages {
+  background: color(casablanca);
+}
+
+.dashboard__updates__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  color: color(wild-sand);
+}
+
+.dashboard__updates__icon_form_twitter {
+  font-size: 37px;
+}
+
+.dashboard__updates__icon_form_sales {
+  font-size: 30px;
+}
+
+.dashboard__updates__icon_form_visitors {
+  font-size: 40px;
+}
+
+.dashboard__updates__icon_form_messages {
+  font-size: 30px;
+}

@@ -16,7 +16,7 @@ linters:
 
   BemDepth:
     enabled: false
-    max_elements: 3
+    max_elements: 4
 
   BorderZero:
     enabled: true

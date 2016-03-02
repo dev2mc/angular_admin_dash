@@ -40,12 +40,24 @@
   content: "";
 }
 
+.fa-user:before {
+  content: "";
+}
+
+.fa-check:before {
+  content: "";
+}
+
 .fa-power-off:before {
   content: "";
 }
 
 .fa-cog:before {
   content: "";
+}
+
+.fa-map-marker:before {
+  content: "";
 }
 
 .fa-chevron-right:before {
@@ -80,6 +92,10 @@
   content: "";
 }
 
+.fa-twitter:before {
+  content: "";
+}
+
 .fa-bell:before {
   content: "";
 }
@@ -98,6 +114,14 @@
 
 .fa-play-circle:before {
   content: "";
+}
+
+.fa-usd:before {
+  content: "";
+}
+
+.fa-sun-o:before {
+  content: "";
 }
 
 .fa-share-alt:before {

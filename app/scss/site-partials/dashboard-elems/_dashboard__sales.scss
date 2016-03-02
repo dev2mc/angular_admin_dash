@@ -1,0 +1,111 @@
+$dashboard-sales-height: 391px;
+
+.dashboard__sales {
+  // width: 325px;
+  width: 100%;
+  height: $dashboard-sales-height;
+  margin: 0 auto;
+
+  border-radius: 6px;
+}
+
+$sales-graph-bord-rad: 6px;
+$sales-graph-height: 155px;
+
+.dashboard__sales__graph-wrapper {
+  width: 100%;
+  height: $sales-graph-height;
+
+  border-top-left-radius: $sales-graph-bord-rad;
+  border-top-right-radius: $sales-graph-bord-rad;
+
+  background: color(mantis);
+}
+
+.dashboard__sales__data-container {
+  height: ($dashboard-sales-height - $sales-graph-height);
+  padding: 20px 28px 23px 17px;
+
+  border-bottom-left-radius: $sales-graph-bord-rad;
+  border-bottom-right-radius: $sales-graph-bord-rad;
+
+  background: color(whitecol);
+
+  > * {
+    margin-bottom: 18px;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.dashboard__sales__number {
+  margin: 0;
+  margin-bottom: 5px;
+  padding: 0;
+
+  color: color(ebony-clay);
+  font-family: 'HelveticaNeueLTStd Roman';
+  font-size: 21px;
+  line-height: 1;
+}
+
+.dashboard__sales__number_col_sales {
+  color: color(casablanca);
+}
+
+.dashboard__sales__number_col_visitors {
+  color: color(mantis);
+}
+
+.dashboard__sales__number_col_customers {
+  color: color(downy);
+}
+
+.dashboard__sales__description {
+  margin: 0;
+  margin-bottom: 7px;
+  padding: 0;
+
+  color: color(silvercol);
+  font-family: 'HelveticaNeueLTStd Roman';
+  font-size: 13px;
+  line-height: 1;
+  text-transform: capitalize;
+}
+
+$dash-sales-line-bord-rad: 10px;
+
+.dashboard__sales__line {
+  position: relative;
+  width: 100%;
+  height: 8px;
+
+  border-radius: $dash-sales-line-bord-rad;
+
+  background: color(mercury);
+}
+
+.dashboard__sales__line_mod_shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 8px;
+
+  border-radius: $dash-sales-line-bord-rad;
+
+  background: color(ebony-clay);
+}
+
+.dashboard__sales__line_mod_shadow_col_sales {
+  background: color(saffron-mango);
+}
+
+.dashboard__sales__line_mod_shadow_col_visitors {
+  background: color(mantis);
+}
+
+.dashboard__sales__line_mod_shadow_col_customers {
+  background: color(downy);
+}
