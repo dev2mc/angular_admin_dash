@@ -11,6 +11,7 @@
 
   <!-- bower:css -->
   <link rel="stylesheet" href="bower_components/bxslider-4/dist/jquery.bxslider.css" />
+  <link rel="stylesheet" href="bower_components/c3/c3.css" />
   <!-- endbower -->
   <!-- inject:vendor:css -->
   <link rel="stylesheet" href="styles/bootstrap.css">
@@ -121,6 +122,15 @@
                   <h3 class="dashboard__chart-stats__heading">site statistic</h3>
                   <i class="fa fa-cog dashboard__chart-stats__settings"></i>
                 </div>
+                <!-- current -->
+                <!-- current -->
+                <!-- current -->
+                <div class="dashboard__chart-stats__container" ng-controller="testChartCtrl">
+                  <test-chart-dir data="myData"></test-chart-dir>
+                </div>
+                <!-- current -->
+                <!-- current -->
+                <!-- current -->
               </div>
             </div>
             <div class="dashboard__item-wrapper">
@@ -285,9 +295,6 @@
             <div class="dashboard__item-wrapper">
               <div class="dashboard__calendar"><h1>calendar</h1></div>
             </div>
-            <!-- current -->
-            <!-- current -->
-            <!-- current -->
             <div class="dashboard__item-wrapper">
               <div class="dashboard__data-graph">
                 <div class="dashboard__data-graph__header">
@@ -312,9 +319,6 @@
                 </div>
               </div>
             </div>
-            <!-- current -->
-            <!-- current -->
-            <!-- current -->
           </div>
         </div>
       </div>
@@ -337,17 +341,20 @@
   <script src="bower_components/angular-ui-sortable/sortable.js"></script>
   <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="bower_components/d3/d3.js"></script>
+  <script src="bower_components/c3/c3.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:js scripts/app.min.js -->
   <!-- inject:angularcustom:js -->
   <script src="app.js"></script>
-  <script src="components/sideBar/sideBarDirective.js"></script>
   <script src="components/tasksComponent/newTaskModalInstanceWindCtrl.js"></script>
   <script src="components/tasksComponent/tasksComponentCtrl.js"></script>
   <script src="components/tasksComponent/tasksComponentErrMesDirective.js"></script>
   <script src="components/tasksComponent/tasksComponentItemsFilter.js"></script>
   <script src="components/tasksComponent/tasksRemoteDataService.js"></script>
+  <script src="components/sideBar/sideBarDirective.js"></script>
+  <script src="components/shared/charts/stacked-area/chart-test.js"></script>
   <!-- endinject -->
   <!-- endbuild -->
 </body>

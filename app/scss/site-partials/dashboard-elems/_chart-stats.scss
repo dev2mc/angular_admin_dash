@@ -24,6 +24,7 @@ $dash-cart-stats-broder-rad: 6px;
   background: color(alabaster);
 }
 
+
 .dashboard__chart-stats__heading {
   margin: 0;
   padding: 0;
@@ -49,4 +50,44 @@ $dash-cart-stats-broder-rad: 6px;
   &:hover {
     animation: chart-set-spin 1s linear infinite;
   }
+}
+
+
+//styles for stats chart located in home page
+.dashboard__chart-stats__container {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  margin-top: 10px;
+}
+
+//styles for text in charts axies
+
+.c3-axis-y text {
+  font-size: 12px;
+
+  fill: color(silver-chalice);
+}
+
+.c3-axis-y .domain {
+  stroke: color(silver-chalice);
+}
+
+.c3-axis-x text {
+  font-size: 12px;
+
+  fill: color(silver-chalice);
+}
+
+.c3-axis-x .domain {
+  stroke: color(silver-chalice);
+}
+
+.c3 .tick line {
+  stroke: transparent;
+}
+
+.c3-legend-background {
+  fill: transparent;
+  stroke: transparent;
 }
