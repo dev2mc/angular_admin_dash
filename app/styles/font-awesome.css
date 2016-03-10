@@ -108,6 +108,10 @@
   content: "";
 }
 
+.fa-undo:before {
+  content: "";
+}
+
 .fa-tachometer:before {
   content: "";
 }

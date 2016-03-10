@@ -14,7 +14,7 @@ angular.module('angularDashboardApp')
 
     $scope.genRandomNumb = function() {
       var idLength = 7;
-      var numberStr = Math.floor((Math.random() * 10000000) + 1) + '';
+      var numberStr = Math.floor((Math.random() * Math.pow(10, idLength)) + 1) + '';
       if (numberStr.length < idLength) {
         var diff = idLength - numberStr.length;
         for (var i = 1; i <= diff; i++) {

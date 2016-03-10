@@ -55,10 +55,11 @@ $dash-cart-stats-broder-rad: 6px;
 
 //styles for stats chart located in home page
 .dashboard__chart-stats__container {
-  display: flex;
-  justify-content: space-around;
-  align-content: center;
-  margin-top: 10px;
+  padding: 21px 25px 14px 0;
+  // display: flex;
+  // justify-content: space-around;
+  // align-content: center;
+  // margin-top: 10px;
 }
 
 //styles for text in charts axies

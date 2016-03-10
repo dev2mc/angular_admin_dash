@@ -56,7 +56,11 @@ var ignoredSelectors = [
   '.modal.fade .modal-dialog',
   //selector for font-awesome
   '.fa .fa-times-circle',
-  '.fa-times-circle'
+  '.fa-times-circle',
+  '.fa .fa-undo',
+  '.fa-undo',
+  '.fa .fa-check',
+  '.fa-check'
 ];
 
 //compile scss files into css and removed unused styles with uncess from files specified in filterFilesArr array
