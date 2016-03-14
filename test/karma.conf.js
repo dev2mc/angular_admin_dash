@@ -36,6 +36,8 @@ module.exports = function(config) {
       "../app/bower_components/angular-ui-sortable/sortable.js",
       "../app/bower_components/angular-local-storage/dist/angular-local-storage.js",
       "../app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js",
+      "../app/bower_components/d3/d3.js",
+      "../app/bower_components/c3/c3.js",
       "../app/bower_components/angular-mocks/angular-mocks.js",
       // endbower
       "../app/app.js",

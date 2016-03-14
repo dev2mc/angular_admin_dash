@@ -18,6 +18,6 @@
   "html": "app/**/*.html",
   "dist": "dist",
   "distScripts": "dist/scripts",
-  "testUnit": "test/spec/**/*.js",
-  "testUnitDir": "test"
+  "testUnit": "unit-tests/spec/**/*.js",
+  "testUnitDir": "unit-tests"
 }

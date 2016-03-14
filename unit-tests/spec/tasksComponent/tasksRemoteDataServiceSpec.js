@@ -79,7 +79,7 @@ describe('tasksComponent: service: tasksRemoteDataService - ', function() {
   });
 
   it('getTasks() function should fetch and pass whole collection array which is equal to dummyTasksData', function() {
-    httpBackend.expectGET('https://api.mongolab.com/api/1/databases/angjsbyexmpl/collections/tasks?apiKey=wYOXfeNqx8m2P7fxATUeF4QSU7qoC9RT').respond(dummyTasksData);
+    httpBackend.expectGET('https://api.mlab.com/api/1/databases/angjsbyexmpl/collections/tasks?apiKey=wYOXfeNqx8m2P7fxATUeF4QSU7qoC9RT').respond(dummyTasksData);
 
     tasksRemoteDataService.getTasks().then(function(data) {
       expect(angular.equals(data, dummyTasksData)).toBeTruthy();
@@ -98,7 +98,7 @@ describe('tasksComponent: service: tasksRemoteDataService - ', function() {
 
     var id = 4821307;
 
-    httpBackend.expectGET('https://api.mongolab.com/api/1/databases/angjsbyexmpl/collections/tasks/' + id +'?apiKey=wYOXfeNqx8m2P7fxATUeF4QSU7qoC9RT').respond({
+    httpBackend.expectGET('https://api.mlab.com/api/1/databases/angjsbyexmpl/collections/tasks/' + id +'?apiKey=wYOXfeNqx8m2P7fxATUeF4QSU7qoC9RT').respond({
         _id: '4821307',
         name: 'Item 1',
         tag: 'work',
@@ -120,7 +120,7 @@ describe('tasksComponent: service: tasksRemoteDataService - ', function() {
       favorite: true
     };
 
-    httpBackend.whenPOST('ttps://api.mongolab.com/api/1/databases/angjsbyexmpl/collections/tasks?apiKey=wYOXfeNqx8m2P7fxATUeF4QSU7qoC9RT', newItem).respond({
+    httpBackend.whenPOST('https://api.mlab.com/api/1/databases/angjsbyexmpl/collections/tasks?apiKey=wYOXfeNqx8m2P7fxATUeF4QSU7qoC9RT', newItem).respond({
       _id: '7611711',
       name: 'Item new',
       tag: 'work',
@@ -145,7 +145,7 @@ describe('tasksComponent: service: tasksRemoteDataService - ', function() {
 
     var id = 4821307;
 
-    httpBackend.expectDELETE('https://api.mongolab.com/api/1/databases/angjsbyexmpl/collections/tasks/' + id +'?apiKey=wYOXfeNqx8m2P7fxATUeF4QSU7qoC9RT').respond({
+    httpBackend.expectDELETE('https://api.mlab.com/api/1/databases/angjsbyexmpl/collections/tasks/' + id +'?apiKey=wYOXfeNqx8m2P7fxATUeF4QSU7qoC9RT').respond({
         _id: '4821307',
         name: 'Item 1',
         tag: 'work',
@@ -168,7 +168,7 @@ describe('tasksComponent: service: tasksRemoteDataService - ', function() {
 
     var id = 4821307;
 
-    httpBackend.expectPUT('https://api.mongolab.com/api/1/databases/angjsbyexmpl/collections/tasks/' + id +'?apiKey=wYOXfeNqx8m2P7fxATUeF4QSU7qoC9RT', sentItem).respond({
+    httpBackend.expectPUT('https://api.mlab.com/api/1/databases/angjsbyexmpl/collections/tasks/' + id +'?apiKey=wYOXfeNqx8m2P7fxATUeF4QSU7qoC9RT', sentItem).respond({
         _id: '4821307',
         name: 'Item 1',
         tag: 'work',
