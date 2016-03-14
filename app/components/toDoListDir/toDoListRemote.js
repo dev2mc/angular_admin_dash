@@ -1,12 +1,12 @@
 'use strict';
 angular.module('angularDashboardApp')
-  .factory('tasksRemoteDataService', function($http) {
+  .factory('toDoListRemote', function($http) {
     var collectionsUrl = 'https://api.mlab.com/api/1/databases/angjsbyexmpl/collections';
     var apiKeyStr = 'wYOXfeNqx8m2P7fxATUeF4QSU7qoC9RT';
-    var collection = '/tasks';
+    var collection = '/todo';
 
     return {
-      getTasks: function () {
+      getAllToDo: function() {
         return $http.get(collectionsUrl + collection, {
           params: {apiKey: apiKeyStr}
         }).then(function(response) {
@@ -14,29 +14,22 @@ angular.module('angularDashboardApp')
           return data;
         });
       },
-      getSingleTask: function (id) {
-        return $http.get(collectionsUrl + collection + '/' + id, {
+      addToDo: function(todo) {
+        return $http.post(collectionsUrl + collection, todo, {
           params: {apiKey: apiKeyStr}
         }).then(function(response) {
           return response.data;
         });
       },
-      addTask: function (task) {
-        return $http.post(collectionsUrl + collection, task, {
-          params: {apiKey: apiKeyStr}
-        }).then(function(response) {
-          return response.data;
-        });
-      },
-      removeTask: function (id) {
+      removeToDo: function(id) {
         return $http.delete(collectionsUrl + collection + '/' + id, {
           params: {apiKey: apiKeyStr}
         }).then(function(response) {
           return response.data;
         });
       },
-      updateTask: function (data, id) {
-        return $http.put(collectionsUrl + collection + '/' + id, data, {
+      updateToDo: function(todo, id) {
+        return $http.put(collectionsUrl + collection + '/' + id, todo, {
           params: {apiKey: apiKeyStr}
         }).then(function(response) {
           return response.data;

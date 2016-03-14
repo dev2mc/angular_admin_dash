@@ -131,7 +131,9 @@
               <!-- current -->
               <!-- current -->
               <!-- current -->
-              <to-do-list></to-do-list>
+              <to-do-list data='dashboard.todoListData'  change-completed='dashboard.changeCompleted(id)'  del-item='dashboard.delToDoItem(id)'
+                add-item='dashboard.addToDoItem(item)'
+              ></to-do-list>
               <!-- current -->
               <!-- current -->
               <!-- current -->
@@ -302,13 +304,14 @@
   <!-- inject:angularcustom:js -->
   <script src="app.js"></script>
   <script src="components/dashboard/dashBoardCtrl.js"></script>
-  <script src="components/sideBar/sideBarDirective.js"></script>
+  <script src="components/toDoListDir/toDoListDir.js"></script>
+  <script src="components/toDoListDir/toDoListRemote.js"></script>
   <script src="components/tasksComponent/newTaskModalInstanceWindCtrl.js"></script>
   <script src="components/tasksComponent/tasksComponentCtrl.js"></script>
   <script src="components/tasksComponent/tasksComponentErrMesDirective.js"></script>
   <script src="components/tasksComponent/tasksComponentItemsFilter.js"></script>
   <script src="components/tasksComponent/tasksRemoteDataService.js"></script>
-  <script src="components/toDoListDir/toDoListDir.js"></script>
+  <script src="components/sideBar/sideBarDirective.js"></script>
   <script src="components/shared/charts/stacked-area/chartStackedDir.js"></script>
   <!-- endinject -->
   <!-- endbuild -->

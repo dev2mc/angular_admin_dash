@@ -1,27 +1,27 @@
 <div class="dashboard__todo">
   <div class="dashboard__todo__header">
     <h3 class="dashboard__todo__heading">ToDo List</h3>
-    <p class="dashboard__todo__add-new" ng-click='dashboard.changeAddToDoVisibility();'>&#43;</p>
+    <p class="dashboard__todo__add-new" ng-click='changeAddToDoVisibility();'>&#43;</p>
   </div>
-  <div class="dashboard__todo__container">
-    <div ng-repeat='item in dashboard.todoListData' class='dashboard__todo__item' ng-class='{"dashboard__todo__item_mod_done": item.completed}'>
+  <div class="dashboard__todo__container" ui-sortable ng-model="data">
+    <div ng-repeat='item in data' class='dashboard__todo__item' ng-class='{"dashboard__todo__item_mod_done": item.completed}'>
       <p class="dashboard__todo__info">
         <i class="dashboard__todo__move-icon"></i>
         <span ng-bind="item.text"></span>
       </p>
       <div class="dashboard__todo__controlls">
-        <i class="fa fa-check dashboard__todo__done" ng-click='dashboard.changeCompleted(item._id)'></i>
-        <i class="dashboard__todo__action dashboard__todo__delete" ng-click='dashboard.delToDoItem(item._id)'>&times</i>
+        <i class="fa fa-check dashboard__todo__done" ng-click='changeCompleted({id: item._id})'></i>
+        <i class="dashboard__todo__action dashboard__todo__delete" ng-click='delItem({id: item._id})'>&times</i>
       </div>
     </div>
   </div>
-  <div class="dashboard__todo__add-container" ng-class="{'dashboard__todo__add-container_vis_true': dashboard.addToDoItemVisibility}">
+  <div class="dashboard__todo__add-container" ng-class="{'dashboard__todo__add-container_vis_true': addToDoItemVisibility}">
     <form class='dashboard__todo__form' name='addToDo' novalidate>
       <label for="dashboard-to-do-input" class='dashboard__todo__label'>Please add a name for the ToDo Item:</label>
-      <input id='dashboard-to-do-input' class='dashboard__todo__input' type="text" ng-model=dashboard.newToDoItem.text name='newToDoName' required>
+      <input id='dashboard-to-do-input' class='dashboard__todo__input' type="text" ng-model=newToDoItem.text name='newToDoName' required>
       <div class="dashboard__todo__buttons">
-        <button class="dashboard__todo__btn dashboard__todo__btn_bg_add" ng-disabled='addToDo.$invalid' ng-click='dashboard.addToDoItem(dashboard.newToDoItem);dashboard.clearNewToDoForm();dashboard.changeAddToDoVisibility();'>Add Item</button>
-        <button class="dashboard__todo__btn dashboard__todo__btn_bg_cancel" ng-click='dashboard.changeAddToDoVisibility();dashboard.clearNewToDoForm();'>Cancel</button>
+        <button class="dashboard__todo__btn dashboard__todo__btn_bg_add" ng-disabled='addToDo.$invalid' ng-click='addItem({item: newToDoItem});clearNewToDoForm();changeAddToDoVisibility();'>Add Item</button>
+        <button class="dashboard__todo__btn dashboard__todo__btn_bg_cancel" ng-click='changeAddToDoVisibility();clearNewToDoForm();'>Cancel</button>
       </div>
     </form>
   </div>

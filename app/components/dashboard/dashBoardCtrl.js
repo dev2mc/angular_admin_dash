@@ -1,8 +1,5 @@
 'use strict';
-angular.module('angularDashboardApp')
-  .controller('dashboardCtrl', dashboardCtrl);
-
-function dashboardCtrl() {
+var dashboardCtrl = function (toDoListRemote) {
   /*jshint validthis:true */
   var ctrl = this;
 
@@ -17,37 +14,12 @@ function dashboardCtrl() {
     }
   };
 
-  ctrl.todoListData = [
-    {
-      _id: '0001',
-      text: 'Do your ToDo List today at 6AM GMT',
-      completed: true
-    },
-    {
-      _id: '0002',
-      text: 'Do your ToDo List today at 2AM GMT',
-      completed: false
-    },
-    {
-      _id: '0003',
-      text: 'Do your ToDo List today at 4AM GMT',
-      completed: false
-    },
-    {
-      _id: '0004',
-      text: 'Do your ToDo List today at 3AM GMT',
-      completed: false
-    }
-  ];
+  ctrl.todoListData = [];
 
-  ctrl.dummyNewToDoItem = {
-    text: '',
-    completed: false
-  };
-
-  ctrl.newToDoItem = {
-    text: '',
-    completed: false
+  ctrl.getTodoData = function() {
+    toDoListRemote.getAllToDo().then(function(data) {
+      ctrl.todoListData = data;
+    });
   };
 
   ctrl.genRandomNumb = function() {
@@ -62,10 +34,15 @@ function dashboardCtrl() {
     return numberStr;
   };
 
-  ctrl.changeCompleted = function (id) {
+  ctrl.changeCompleted = function(id) {
     angular.forEach(ctrl.todoListData, function(v) {
       if (v._id === id) {
-        v.completed = !v.completed;
+        var updItem = angular.copy(v);
+        updItem.completed = !updItem.completed;
+
+        toDoListRemote.updateToDo(updItem, id).then(function() {
+          v.completed = !v.completed;
+        });
       }
     });
   };
@@ -73,24 +50,28 @@ function dashboardCtrl() {
   ctrl.delToDoItem = function(id) {
     angular.forEach(ctrl.todoListData, function(v, i) {
       if (v._id === id) {
-        ctrl.todoListData.splice(i, 1);
+        toDoListRemote.removeToDo(id).then(function() {
+          ctrl.todoListData.splice(i, 1);
+        });
       }
     });
   };
 
-  ctrl.addToDoItemVisibility = false;
-
-  ctrl.changeAddToDoVisibility = function() {
-    ctrl.addToDoItemVisibility = !ctrl.addToDoItemVisibility;
-  };
-
   ctrl.addToDoItem = function(item) {
     item._id = ctrl.genRandomNumb();
-    ctrl.todoListData.push(item);
-    console.log(item);
+    toDoListRemote.addToDo(item).then(function(data) {
+      ctrl.todoListData.push(data);
+    });
   };
 
-  ctrl.clearNewToDoForm = function() {
-    ctrl.newToDoItem = angular.copy(ctrl.dummyNewToDoItem);
+  ctrl.init = function() {
+    ctrl.getTodoData();
   };
-}
+
+  ctrl.init();
+};
+
+dashboardCtrl.$inject = ['toDoListRemote'];
+
+angular.module('angularDashboardApp')
+  .controller('dashboardCtrl', dashboardCtrl);
