@@ -63,7 +63,7 @@
     <side-bar></side-bar>
     <!-- <main ng-view class='views-container'></main> -->
     <main class="views-container">
-      <div class="dashboard" ng-controller="dashboardCtrl as dashboard">
+      <div class="dashboard" ng-controller="dashboardCtrl">
         <div class="dashboard-container">
           <div class="dashboard__panel dashboard__panel_location_top">
             <div class="dashboard__updates">
@@ -123,7 +123,7 @@
                   <i class="fa fa-cog dashboard__chart-stats__settings"></i>
                 </div>
                 <div class="dashboard__chart-stats__container">
-                  <chart-stacked data="dashboard.stackedCartData"></chart-stacked>
+                  <chart-stacked data="stackedCartData"></chart-stacked>
                 </div>
               </div>
             </div>
@@ -131,8 +131,8 @@
               <!-- current -->
               <!-- current -->
               <!-- current -->
-              <to-do-list data='dashboard.todoListData'  change-completed='dashboard.changeCompleted(id)'  del-item='dashboard.delToDoItem(id)'
-                add-item='dashboard.addToDoItem(item)'
+              <to-do-list data='todoListData'  change-completed='changeCompleted(id)'  del-item='delToDoItem(id)'
+                add-item='addToDoItem(item)'
               ></to-do-list>
               <!-- current -->
               <!-- current -->
@@ -304,14 +304,14 @@
   <!-- inject:angularcustom:js -->
   <script src="app.js"></script>
   <script src="components/dashboard/dashBoardCtrl.js"></script>
-  <script src="components/sideBar/sideBarDirective.js"></script>
-  <script src="components/toDoListDir/toDoListDir.js"></script>
-  <script src="components/toDoListDir/toDoListRemote.js"></script>
   <script src="components/tasksComponent/newTaskModalInstanceWindCtrl.js"></script>
   <script src="components/tasksComponent/tasksComponentCtrl.js"></script>
   <script src="components/tasksComponent/tasksComponentErrMesDirective.js"></script>
   <script src="components/tasksComponent/tasksComponentItemsFilter.js"></script>
   <script src="components/tasksComponent/tasksRemoteDataService.js"></script>
+  <script src="components/sideBar/sideBarDirective.js"></script>
+  <script src="components/toDoListDir/toDoListDir.js"></script>
+  <script src="components/toDoListDir/toDoListRemote.js"></script>
   <script src="components/shared/charts/stacked-area/chartStackedDir.js"></script>
   <!-- endinject -->
   <!-- endbuild -->
