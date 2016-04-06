@@ -22,26 +22,31 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       // bower:js
-      "../app/bower_components/jquery/dist/jquery.js",
-      "../app/bower_components/angular/angular.js",
-      "../app/bower_components/bxslider-4/dist/jquery.bxslider.js",
-      "../app/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js",
-      "../app/bower_components/angular-animate/angular-animate.js",
-      "../app/bower_components/angular-cookies/angular-cookies.js",
-      "../app/bower_components/angular-resource/angular-resource.js",
-      "../app/bower_components/angular-route/angular-route.js",
-      "../app/bower_components/angular-sanitize/angular-sanitize.js",
-      "../app/bower_components/angular-touch/angular-touch.js",
-      "../app/bower_components/jquery-ui/jquery-ui.js",
-      "../app/bower_components/angular-ui-sortable/sortable.js",
-      "../app/bower_components/angular-local-storage/dist/angular-local-storage.js",
-      "../app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js",
-      "../app/bower_components/angular-mocks/angular-mocks.js",
+      "app/bower_components/jquery/dist/jquery.js",
+      "app/bower_components/angular/angular.js",
+      "app/bower_components/bxslider-4/dist/jquery.bxslider.js",
+      "app/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js",
+      "app/bower_components/angular-animate/angular-animate.js",
+      "app/bower_components/angular-cookies/angular-cookies.js",
+      "app/bower_components/angular-resource/angular-resource.js",
+      "app/bower_components/angular-route/angular-route.js",
+      "app/bower_components/angular-sanitize/angular-sanitize.js",
+      "app/bower_components/angular-touch/angular-touch.js",
+      "app/bower_components/jquery-ui/jquery-ui.js",
+      "app/bower_components/angular-ui-sortable/sortable.js",
+      "app/bower_components/angular-local-storage/dist/angular-local-storage.js",
+      "app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js",
+      "app/bower_components/d3/d3.js",
+      "app/bower_components/c3/c3.js",
+      "app/bower_components/angular-mocks/angular-mocks.js",
       // endbower
-      "../app/app.js",
-      "../app/components/**/*.js",
-      // "../test/unit-tests/mock/**/*.js",
-      "../unit-tests/spec/**/*.js"
+      "app/app.js",
+      "app/components/**/*.js",
+      // "../unit-tests/mock/**/*.js",
+      "unit-tests/spec/**/*.js",
+
+      //html templates
+      "app/components/**/*.html"
     ],
 
     // list of files / patterns to exclude
@@ -50,6 +55,18 @@ module.exports = function(config) {
 
     // web server port
     port: 8080,
+
+    ngHtml2JsPreprocessor: {
+      stripPrefix: 'app/',
+      prependPrefix: '../',
+      moduleName: 'appTemplates'
+    },
+
+    preprocessors: {
+      'app/components/**/*.html': 'ng-html2js'
+    },
+
+
 
     // Start these browsers, currently available:
     // - Chrome
@@ -65,6 +82,7 @@ module.exports = function(config) {
 
     // Which plugins to enable
     plugins: [
+      "karma-ng-html2js-preprocessor",
       "karma-phantomjs-launcher",
       "karma-jasmine"
     ],

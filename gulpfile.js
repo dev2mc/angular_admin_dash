@@ -73,15 +73,15 @@ gulp.task('html', ['cleanDist', 'wire'], function() {
 //inject tests into karma.conf.js file
 gulp.task('karma:inject', function() {
   //inject bower dependencies into karma.conf.js config file
-  gulp.src('unit-tests/karma.conf.js')
+  gulp.src('karma.conf.js', { base: './' })
     .pipe(p.wiredep({devDependencies: true}))
-    .pipe(gulp.dest('test'));
+    .pipe(gulp.dest('.'));
 })
 
 //config for karma testing
 gulp.task('test:karma', ['karma:inject'], function (done) {
   new Server({
-    configFile: __dirname + '\\unit-tests\\karma.conf.js',
+    configFile: __dirname + '\\karma.conf.js',
     singleRun: true
   }, function() {done();}).start();
 });
