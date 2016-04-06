@@ -15,11 +15,29 @@ $sales-graph-height: 155px;
 .dashboard__sales__graph-wrapper {
   width: 100%;
   height: $sales-graph-height;
+  padding: 16px 18px 9px;
 
   border-top-left-radius: $sales-graph-bord-rad;
   border-top-right-radius: $sales-graph-bord-rad;
 
   background: color(mantis);
+}
+
+.dashboard__sales__graph-description {
+  margin: 0;
+  margin-bottom: 12px;
+  padding: 0;
+
+  color: color(whitecol);
+  font-family: 'HelveticaNeueLTStd Light';
+  font-size: 16px;
+  line-height: 1;
+}
+
+.dashboard__sales__graph-image {
+  display: block;
+  width: 288px;
+  margin: 0 auto;
 }
 
 .dashboard__sales__data-container {

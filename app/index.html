@@ -128,15 +128,7 @@
               </div>
             </div>
             <div class="dashboard__item-wrapper">
-              <!-- current -->
-              <!-- current -->
-              <!-- current -->
-              <to-do-list data='todoListData'  change-completed='changeCompleted(id)'  del-item='delToDoItem(id)'
-                add-item='addToDoItem(item)'
-              ></to-do-list>
-              <!-- current -->
-              <!-- current -->
-              <!-- current -->
+              <to-do-list data='todoListData' change-completed='changeCompleted(id)'  del-item='delToDoItem(id)' add-item='addToDoItem(item)'></to-do-list>
             </div>
             <div class="dashboard__email-space-wrapper">
               <div class="dashboard__email-space">
@@ -210,7 +202,16 @@
           <div class="dashboard__panel dashboard__panel_location_right">
             <div class="dashboard__item-wrapper">
               <div class="dashboard__sales">
-                <div class="dashboard__sales__graph-wrapper"></div>
+                <!-- current -->
+                <!-- current -->
+                <!-- current -->
+                <div class="dashboard__sales__graph-wrapper">
+                  <p class="dashboard__sales__graph-description">Yearly Sales</p>
+                  <img src="images/graphs/yearly-sales-graph.png" alt="yearly-sales-graph" class="dashboard__sales__graph-image">
+                </div>
+                <!-- current -->
+                <!-- current -->
+                <!-- current -->
                 <div class="dashboard__sales__data-container">
                   <div class="dashboard__sales__data-item">
                     <p class="dashboard__sales__number dashboard__sales__number_col_sales">536,030 $</p>
@@ -304,12 +305,12 @@
   <!-- inject:angularcustom:js -->
   <script src="app.js"></script>
   <script src="components/dashboard/dashBoardCtrl.js"></script>
+  <script src="components/sideBar/sideBarDirective.js"></script>
   <script src="components/tasksComponent/newTaskModalInstanceWindCtrl.js"></script>
   <script src="components/tasksComponent/tasksComponentCtrl.js"></script>
   <script src="components/tasksComponent/tasksComponentErrMesDirective.js"></script>
   <script src="components/tasksComponent/tasksComponentItemsFilter.js"></script>
   <script src="components/tasksComponent/tasksRemoteDataService.js"></script>
-  <script src="components/sideBar/sideBarDirective.js"></script>
   <script src="components/toDoListDir/toDoListDir.js"></script>
   <script src="components/toDoListDir/toDoListRemote.js"></script>
   <script src="components/shared/charts/stacked-area/chartStackedDir.js"></script>
