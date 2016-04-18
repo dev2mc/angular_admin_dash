@@ -19,6 +19,7 @@
   "smarttabs": true,
   "globals": {
     "angular": false,
-    "c3": false
+    "c3": false,
+    "moment": false
   }
 }

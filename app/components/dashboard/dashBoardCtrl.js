@@ -2,6 +2,8 @@
 
 angular.module('angularDashboardApp')
   .controller('dashboardCtrl', function($scope, toDoListRemote) {
+    $scope.day = moment();
+
     $scope.stackedCartData = {
       columns: [
         ['Sales', 100, 200, 320, 789, 500, 250],

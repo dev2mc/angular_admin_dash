@@ -202,16 +202,10 @@
           <div class="dashboard__panel dashboard__panel_location_right">
             <div class="dashboard__item-wrapper">
               <div class="dashboard__sales">
-                <!-- current -->
-                <!-- current -->
-                <!-- current -->
                 <div class="dashboard__sales__graph-wrapper">
                   <p class="dashboard__sales__graph-description">Yearly Sales</p>
                   <img src="images/graphs/yearly-sales-graph.png" alt="yearly-sales-graph" class="dashboard__sales__graph-image">
                 </div>
-                <!-- current -->
-                <!-- current -->
-                <!-- current -->
                 <div class="dashboard__sales__data-container">
                   <div class="dashboard__sales__data-item">
                     <p class="dashboard__sales__number dashboard__sales__number_col_sales">536,030 $</p>
@@ -249,7 +243,15 @@
               </div>
             </div>
             <div class="dashboard__item-wrapper">
-              <div class="dashboard__calendar"><h1>calendar</h1></div>
+              <!-- current -->
+              <!-- current -->
+              <!-- current -->
+              <div class="dashboard__calendar">
+                <calendar selected="day"></calendar>
+              </div>
+              <!-- current -->
+              <!-- current -->
+              <!-- current -->
             </div>
             <div class="dashboard__item-wrapper">
               <div class="dashboard__data-graph">
@@ -299,6 +301,7 @@
   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
   <script src="bower_components/d3/d3.js"></script>
   <script src="bower_components/c3/c3.js"></script>
+  <script src="bower_components/moment/moment.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:js scripts/app.min.js -->
@@ -313,6 +316,7 @@
   <script src="components/tasksComponent/tasksRemoteDataService.js"></script>
   <script src="components/toDoListDir/toDoListDir.js"></script>
   <script src="components/toDoListDir/toDoListRemote.js"></script>
+  <script src="components/shared/calendar/calendarDir.js"></script>
   <script src="components/shared/charts/stacked-area/chartStackedDir.js"></script>
   <!-- endinject -->
   <!-- endbuild -->
